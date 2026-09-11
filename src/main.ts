@@ -642,6 +642,25 @@ export class Game {
           dinoJaw: view.targets.get("dinosaur")!.extras[0].position.toArray(),
           ballColor: view.ballLeather.color.getHexString(),
           composition: view.polish.snapshot(),
+          layout: {
+            poles: [-1, 1].map((side) => {
+              const x = (side * 72) / Math.sqrt(2),
+                z = 72 / Math.sqrt(2);
+              return [0, 24].map((y) => {
+                const p = view.desired
+                  .clone()
+                  .set(x, y, z)
+                  .project(view.camera);
+                return [
+                  ((p.x + 1) * innerWidth) / 2,
+                  ((1 - p.y) * innerHeight) / 2,
+                ];
+              });
+            }),
+            crowdMinimumRadius: Math.min(
+              ...view.crowdPeople.map((person) => person.radius),
+            ),
+          },
         };
       },
       startRound: (mode: Mode = "solo") => this.start(mode),
@@ -727,6 +746,7 @@ declare global {
         dinoJaw: number[];
         ballColor: string;
         composition: ReturnType<Rendering["polish"]["snapshot"]>;
+        layout: { poles: number[][][]; crowdMinimumRadius: number };
       };
       startRound: (mode?: Mode) => void;
       predictablePitch: () => void;

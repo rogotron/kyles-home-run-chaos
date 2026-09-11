@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import stadiumLayout from "./stadium-layout.json";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import {
   box,
@@ -324,7 +325,10 @@ export class Rendering {
     this.boardTexture = new THREE.CanvasTexture(this.boardCanvas);
     this.boardTexture.colorSpace = THREE.SRGBColorSpace;
     const board = new THREE.Mesh(
-      new THREE.PlaneGeometry(32, 12),
+      new THREE.PlaneGeometry(
+        TARGETS.find((t) => t.id === "scoreboard")!.half.x * 2 - 2,
+        12,
+      ),
       new THREE.MeshBasicMaterial({ map: this.boardTexture }),
     );
     board.position.set(0, 0, -1.025);
@@ -342,7 +346,21 @@ export class Rendering {
       h = window.innerHeight;
     this.renderer.setSize(w, h);
     this.camera.aspect = w / h;
-    this.camera.fov = w / h < 1 ? 72 : 57;
+    // Keep the same camera poses, follow motion and zoom; fit both foul corners
+    // within the desktop frame instead of cropping them at the old fixed FOV.
+    this.camera.fov = Math.max(
+      w / h < 1 ? 72 : 57,
+      Math.min(
+        105,
+        THREE.MathUtils.radToDeg(
+          2 *
+            Math.atan((Math.tan(THREE.MathUtils.degToRad(43)) * 1.4) / (w / h)),
+        ),
+      ),
+    );
+    // Short desktop windows need some sky reserved for the existing HUD.
+    // An off-axis frame keeps the camera and all ball-follow transforms intact.
+    this.camera.setViewOffset(w, h, 0, -Math.max(0, 850 - h) * 0.42, w, h);
     this.camera.updateProjectionMatrix();
   }
   mergeStaticGeometry() {
@@ -474,8 +492,12 @@ export class Rendering {
     }
     for (const s of [-1, 1]) {
       const pts = [
-        new THREE.Vector3(s * 0.4, 0.065, 0.4),
-        new THREE.Vector3(s * 62, 0.065, 62),
+        new THREE.Vector3(0, 0.082, 0),
+        new THREE.Vector3(
+          (s * stadiumLayout.wallRadius) / Math.sqrt(2),
+          0.082,
+          stadiumLayout.wallRadius / Math.sqrt(2),
+        ),
       ];
       this.scene.add(
         new THREE.Line(
@@ -505,7 +527,7 @@ export class Rendering {
   createCrowd() {
     // Three separated seating bands keep the crowd legible and leave the
     // colorful bleacher faces visible between the people.
-    const rowRadii = [94, 104, 114];
+    const rowRadii = stadiumLayout.terraceRadii;
     const rowY = [4.9, 6.3, 7.7];
     const rowColors = ["#3b7890", "#315f7b", "#294e68"];
     for (let row = 0; row < rowRadii.length; row++) {
@@ -1126,7 +1148,11 @@ export class Rendering {
     for (let i = 0; i < phrases.length; i++) {
       const angle = signAngles[i];
       const g = new THREE.Group();
-      g.position.set(120.5 * Math.sin(angle), 0, 120.5 * Math.cos(angle));
+      g.position.set(
+        stadiumLayout.crowdSignRadius * Math.sin(angle),
+        0,
+        stadiumLayout.crowdSignRadius * Math.cos(angle),
+      );
       g.rotation.y = angle;
       this.scene.add(g);
       const sign = label(
@@ -1167,16 +1193,33 @@ export class Rendering {
         g.add(marker);
       }
     }
-    for (const a of [-Math.PI / 4, Math.PI / 4]) {
-      const x = 72 * Math.sin(a),
-        z = 72 * Math.cos(a);
-      cylinder(this.scene, "#ffe084", x, 9, z, 0.17, 0.2, 18);
+    for (const side of [-1, 1]) {
+      const a = side * stadiumLayout.foulAngle;
+      const x = stadiumLayout.wallRadius * Math.sin(a),
+        z = stadiumLayout.wallRadius * Math.cos(a);
+      cylinder(
+        this.scene,
+        "#ffeb16",
+        x,
+        stadiumLayout.poleHeight / 2,
+        z,
+        stadiumLayout.poleRadius,
+        stadiumLayout.poleRadius,
+        stadiumLayout.poleHeight,
+      );
+      for (const y of [19, 20.25, 21.5, 22.75, 24])
+        box(this.scene, "#ffeb16", x - side * 0.425, y, z, 0.85, 0.07, 0.07);
+      cylinder(this.scene, "#ffeb16", x - side * 0.85, 21.5, z, 0.04, 0.04, 5);
     }
     this.createCrowd();
     for (let i = 0; i < 12; i++) {
       const a = -1.22 + (i * 2.44) / 11;
       const g = new THREE.Group();
-      g.position.set(131 * Math.sin(a), 0, 131 * Math.cos(a));
+      g.position.set(
+        stadiumLayout.canopyRadius * Math.sin(a),
+        0,
+        stadiumLayout.canopyRadius * Math.cos(a),
+      );
       g.rotation.y = a;
       this.scene.add(g);
       box(g, "#31556c", 0, 8, 0, 1, 16, 1);
@@ -1206,8 +1249,7 @@ export class Rendering {
       );
       flag.rotation.y = 0.25;
     }
-    for (const x of [-92, -54, 54, 92]) {
-      const z = Math.abs(x) > 60 ? 64 : 116;
+    for (const [x, z] of stadiumLayout.floodlights) {
       const g = new THREE.Group();
       g.position.set(x, 0, z);
       this.scene.add(g);
@@ -1228,7 +1270,7 @@ export class Rendering {
         i % 2 ? "#85bcbf" : "#8fc6c7",
         x,
         height / 2,
-        166 + Math.sin(i) * 12,
+        250 + Math.sin(i) * 12,
         10,
         height,
         11,
@@ -1237,7 +1279,7 @@ export class Rendering {
     }
     for (let i = 0; i < 13; i++) {
       const x = Math.sin(i * 5) * 160,
-        z = 135 + Math.cos(i * 3) * 25;
+        z = 195 + Math.cos(i * 3) * 15;
       const g = new THREE.Group();
       g.position.set(x, 0, z);
       this.scene.add(g);

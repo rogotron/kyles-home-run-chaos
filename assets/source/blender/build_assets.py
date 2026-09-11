@@ -9,6 +9,7 @@ from pathlib import Path
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[3]
+LAYOUT = json.loads((ROOT / 'src/stadium-layout.json').read_text())
 SOURCE = ROOT / 'assets/source/blender'
 OUTPUT = ROOT / 'public/assets/models'
 OUTPUT.mkdir(parents=True, exist_ok=True)
@@ -25,6 +26,7 @@ PALETTE = {
     'dino': '#33B896', 'dino_light': '#6DD8A8', 'belly': '#D1E68D',
     'mouth': '#263D50', 'tongue': '#F58192', 'wood': '#E8AC62',
     'wood_light': '#FFCF86', 'seam': '#DB4D63',
+    'foul_yellow': '#FFEB16',
 }
 MATS = {}
 REPORT = {}
@@ -85,7 +87,7 @@ def link(name, mat, a, b, radius, top=None, parent=None, vertices=16):
     a,b=Vector(xyz(a)),Vector(xyz(b))
     o=cone(name,mat,(0,0,0),radius,radius if top is None else top,(b-a).length,parent,vertices)
     o.location=(a+b)/2
-    o.rotation_quaternion=(b-a).to_track_quat('Z','Y'); o.rotation_mode='QUATERNION'
+    o.rotation_mode='QUATERNION'; o.rotation_quaternion=(b-a).to_track_quat('Z','Y')
     return o
 
 def line(name,mat,points,radius,parent=None):
@@ -169,7 +171,14 @@ def field():
         wear.scale.y=.78
         o=box('Padded base','white',(x,.10,z),(.75,.13,.75),.045); o.rotation_euler.z=math.pi/4
     for s in [-1,1]:
-        link('Chalk foul line','cream',(s*.4,.07,.4),(s*62,.07,62),.055,vertices=6)
+        # Paint a flat ribbon from the plate through first/third to the wall.
+        # Keeping this a mesh avoids an upright cylinder if a rotation is lost.
+        end=LAYOUT['wallRadius']/math.sqrt(2)
+        dx,dz=.07/math.sqrt(2),-s*.07/math.sqrt(2)
+        vertices=[xyz((x+ox,.082,z+oz)) for x,z,ox,oz in
+                  [(0,0,-dx,-dz),(s*end,end,-dx,-dz),(s*end,end,dx,dz),(0,0,dx,dz)]]
+        mesh=bpy.data.meshes.new('Foul chalk ribbon'); mesh.from_pydata(vertices,[],[(0,1,2,3),(3,2,1,0)])
+        o=bpy.data.objects.new('Chalk foul line',mesh); bpy.context.collection.objects.link(o); mesh.materials.append(MATS['cream'])
         line('Batters box','cream',[(s*.6,.075,-1),(s*1.9,.075,-1),(s*1.9,.075,1),(s*.6,.075,1),(s*.6,.075,-1)],.023)
     # Broad, low-contrast grooming bands replace subpixel grooves and pebbles.
     for inner,outer in [(3.60,3.72),(4.02,4.14)]:
@@ -190,7 +199,7 @@ def stadium():
             box('Distance plaque','navy',(0,2.1,-.48),(2,.72,.05),.12,g)
             text_mesh('Distance','236 FT','cream',(0,2.1,-.525),.39,g)
     # Three genuine seating terraces underneath the existing animated crowd.
-    for row,(r,y) in enumerate([(94,4.25),(104,5.65),(114,7.05)]):
+    for row,(r,y) in enumerate(zip(LAYOUT['terraceRadii'],[4.25,5.65,7.05])):
         arc('Terrace deck','teal_dark',r-4.5,r+4.5,y+.018,-1.25,1.25)
         for i in range(40):
             a=-1.25+(i+.5)*2.5/40
@@ -201,7 +210,7 @@ def stadium():
                 for step in range(5): box('Aisle steps','cream',(0,y-.9+step*.22,-4+step*1.75),(1.1,.20,1.8),.02,g)
     for i in range(13):
         a=-1.22+i*2.44/12
-        g=group('Canopy pavilion',(125*math.sin(a),0,125*math.cos(a))); g.rotation_euler.z=a
+        g=group('Canopy pavilion',(LAYOUT['canopyRadius']*math.sin(a),0,LAYOUT['canopyRadius']*math.cos(a))); g.rotation_euler.z=a
         for x in [-6.5,6.5]:
             box('Canopy pier','cream',(x,9.5,0),(.65,19,.65),.13,g)
             box('Pier foot','teal_dark',(x,1,0),(1.2,2,1.2),.16,g)
@@ -215,17 +224,22 @@ def stadium():
         link('Pennant pole','cream',(0,18,0),(0,24,0),.08,parent=g)
         mesh=bpy.data.meshes.new('Pennant'); mesh.from_pydata([xyz(p) for p in [(0,24,0),(3.2,23.2,0),(0,22.4,0)]],[],[(0,1,2),(2,1,0)])
         o=bpy.data.objects.new('Triangular pennant',mesh); bpy.context.collection.objects.link(o); o.parent=g; mesh.materials.append(MATS['coral' if i%2 else 'gold'])
-    for x in [-92,-54,54,92]:
-        z=64 if abs(x)>60 else 116
+    for x,z in LAYOUT['floodlights']:
         g=group('Floodlight',(x,0,z))
         cone('Floodlight tower','teal_dark',(0,19,0),.7,.4,38,g)
         box('Lamp housing','navy',(0,37,0),(10,3.8,1),.3,g)
         for i in range(5):
             for j in range(2): box('Lamp lens','cream',(-4+i*2,36.1+j*1.8,-.61),(1.4,1.15,.3),.15,g)
-    for a in [-math.pi/4,math.pi/4]:
-        x,z=72*math.sin(a),72*math.cos(a)
-        cone('Foul pole','gold',(x,9,z),.18,.18,18)
-        box('Foul pole flag','gold',(x+.8,16,z),(1.5,3,.08),.02)
+    for side in [-1,1]:
+        a=side*LAYOUT['foulAngle']
+        x,z=LAYOUT['wallRadius']*math.sin(a),LAYOUT['wallRadius']*math.cos(a)
+        height=LAYOUT['poleHeight']; radius=LAYOUT['poleRadius']
+        cone('Foul pole','foul_yellow',(x,height/2,z),radius,radius,height,vertices=12)
+        # A narrow, open fair-side screen, mirrored across the field.
+        inward=-side*.85
+        for y in [19,20.25,21.5,22.75,24]:
+            link('Pole screen rung','foul_yellow',(x,y,z),(x+inward,y,z),.035,vertices=6)
+        link('Pole screen edge','foul_yellow',(x+inward,19,z),(x+inward,24,z),.04,vertices=6)
     save('stadium')
 
 def batter():

@@ -18,8 +18,8 @@ describe("left-handed timing and target assistance", () => {
   it("falls back to the natural trajectory when no active target is near the aim", () => {
     const lights = TARGETS.filter((target) => target.id === "lights");
     expect(
-      targetedExitVelocity("Perfect", 0.8, position, 0, position, lights),
-    ).toEqual(exitVelocity("Perfect", 0.8, position, 0));
+      targetedExitVelocity("Perfect", -0.8, position, 0, position, lights),
+    ).toEqual(exitVelocity("Perfect", -0.8, position, 0));
     expect(
       targetedExitVelocity("Perfect", 0, position, 0, position, []),
     ).toEqual(exitVelocity("Perfect", 0, position, 0));

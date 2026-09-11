@@ -2,6 +2,7 @@ import * as THREE from "three";
 import type { TargetModel } from "./models";
 import { TARGETS, type TargetId } from "./types";
 import { BATTER_STANCE } from "./batter";
+import stadiumLayout from "./stadium-layout.json";
 
 type Rect = { left: number; top: number; right: number; bottom: number };
 const overlaps = (a: Rect, b: Rect, gap = 8) =>
@@ -47,11 +48,13 @@ function plaque(text: string, color: string, width: number) {
     new THREE.SpriteMaterial({
       map: texture,
       transparent: true,
+      depthTest: false,
       depthWrite: false,
     }),
   );
   sprite.scale.set(width, 2.05, 1);
   sprite.name = "target-plaque";
+  sprite.renderOrder = 30;
   return sprite;
 }
 
@@ -59,12 +62,46 @@ function plaque(text: string, color: string, width: number) {
 export class VisualPolish {
   labels: { id: TargetId; target: TargetModel; sprite: THREE.Sprite }[] = [];
   mascotOpacity = 1;
-  private mascotMaterials: THREE.Material[] = [];
-  private mascotMeshes: { mesh: THREE.Mesh; castShadow: boolean }[] = [];
   private point = new THREE.Vector3();
   private hud: Rect | null = null;
   private layoutKey = "";
   private bounds = new Map<THREE.Sprite, Rect>();
+  private anchors = new Map<THREE.Sprite, THREE.Vector3>();
+  private subjects = new Map<
+    TargetId,
+    { target: TargetModel; box: THREE.Box3 }
+  >();
+  private scenery: THREE.Box3[] = [];
+  private obstacles: Rect[] = [];
+
+  private projectBox(
+    box: THREE.Box3,
+    camera: THREE.Camera,
+    matrix?: THREE.Matrix4,
+  ): Rect | null {
+    const rect = {
+      left: Infinity,
+      right: -Infinity,
+      top: Infinity,
+      bottom: -Infinity,
+    };
+    for (const x of [box.min.x, box.max.x])
+      for (const y of [box.min.y, box.max.y])
+        for (const z of [box.min.z, box.max.z]) {
+          const p = new THREE.Vector3(x, y, z);
+          if (matrix) p.applyMatrix4(matrix);
+          if (p.clone().applyMatrix4(camera.matrixWorldInverse).z >= -0.1)
+            return null;
+          p.project(camera);
+          const sx = ((p.x + 1) * innerWidth) / 2,
+            sy = ((1 - p.y) * innerHeight) / 2;
+          rect.left = Math.min(rect.left, sx);
+          rect.right = Math.max(rect.right, sx);
+          rect.top = Math.min(rect.top, sy);
+          rect.bottom = Math.max(rect.bottom, sy);
+        }
+    return rect;
+  }
 
   constructor(targets: Map<TargetId, TargetModel>) {
     for (const [id, target] of targets) {
@@ -91,27 +128,61 @@ export class VisualPolish {
         old.material.map?.dispose();
         old.material.dispose();
         this.labels.push({ id, target, sprite: replacement });
+        this.anchors.set(replacement, replacement.position.clone());
       }
+      // Cache actual render bounds, excluding labels, tethers and supports when
+      // the floating target itself is the subject. Rapier geometry is untouched.
+      target.group.updateWorldMatrix(true, true);
+      const inverse = target.group.matrixWorld.clone().invert();
+      const bounds = new THREE.Box3();
+      const subject = ["scoreboard", "baseball", "mascot", "hotdog"].includes(
+        id,
+      )
+        ? target.moving
+        : target.group;
+      subject.traverseVisible((object) => {
+        if (!(object instanceof THREE.Mesh)) return;
+        object.geometry.computeBoundingBox();
+        const local = inverse.clone().multiply(object.matrixWorld);
+        bounds.union(object.geometry.boundingBox!.clone().applyMatrix4(local));
+      });
+      if (id === "lights") bounds.min.y = 20;
+      this.subjects.set(id, { target, box: bounds });
     }
-    // Give only the occluding mascot its own fade materials. Shared target
-    // materials, the mascot's geometry and its Rapier collider stay untouched.
-    const clones = new Map<THREE.Material, THREE.Material>();
-    targets.get("mascot")!.group.traverse((object) => {
-      if (!(object instanceof THREE.Mesh)) return;
-      this.mascotMeshes.push({ mesh: object, castShadow: object.castShadow });
-      const clone = (source: THREE.Material) => {
-        if (!clones.has(source)) {
-          const material = source.clone();
-          material.transparent = true;
-          clones.set(source, material);
-        }
-        return clones.get(source)!;
-      };
-      object.material = Array.isArray(object.material)
-        ? object.material.map(clone)
-        : clone(object.material);
-    });
-    this.mascotMaterials = [...clones.values()];
+    for (const side of [-1, 1]) {
+      const x = (side * stadiumLayout.wallRadius) / Math.sqrt(2);
+      const z = stadiumLayout.wallRadius / Math.sqrt(2);
+      this.scenery.push(
+        new THREE.Box3(
+          new THREE.Vector3(x - 1, 0, z - 0.2),
+          new THREE.Vector3(x + 1, stadiumLayout.poleHeight, z + 0.2),
+        ),
+      );
+    }
+    for (const [x, z] of stadiumLayout.floodlights)
+      this.scenery.push(
+        new THREE.Box3(
+          new THREE.Vector3(x - 5.2, 0, z - 0.7),
+          new THREE.Vector3(x + 5.2, 39, z + 0.7),
+        ),
+      );
+    for (let i = 0; i < 13; i++) {
+      const angle = -1.22 + (i * 2.44) / 12;
+      const matrix = new THREE.Matrix4().makeRotationY(angle);
+      matrix.setPosition(
+        stadiumLayout.canopyRadius * Math.sin(angle),
+        0,
+        stadiumLayout.canopyRadius * Math.cos(angle),
+      );
+      this.scenery.push(
+        new THREE.Box3(
+          new THREE.Vector3(-8, 14.4, -6),
+          new THREE.Vector3(8, 19, 5),
+        ).applyMatrix4(matrix),
+      );
+    }
+    // The mascot now has its own space. Keep it opaque, so seating and other
+    // scenery cannot show through it during the dinosaur reaction.
   }
 
   update(
@@ -121,18 +192,6 @@ export class VisualPolish {
     reaction?: TargetId | null,
   ) {
     const fade = 1 - Math.exp(-dt * 10);
-    this.mascotOpacity = THREE.MathUtils.lerp(
-      this.mascotOpacity,
-      reaction === "dinosaur" ? 0.08 : 1,
-      fade,
-    );
-    for (const material of this.mascotMaterials) {
-      material.opacity = this.mascotOpacity;
-      material.depthWrite = this.mascotOpacity > 0.99;
-    }
-    for (const { mesh, castShadow } of this.mascotMeshes) {
-      mesh.castShadow = castShadow && this.mascotOpacity > 0.99;
-    }
 
     const key = `${innerWidth}:${innerHeight}:${menu}`;
     if (key !== this.layoutKey || (!menu && !this.hud)) {
@@ -141,9 +200,22 @@ export class VisualPolish {
       this.hud = !menu && rect?.height ? rect : null;
     }
     camera.updateMatrixWorld();
+    const subjectRects = new Map<TargetId, Rect>();
+    for (const [id, { target, box }] of this.subjects) {
+      target.group.updateWorldMatrix(true, false);
+      const r = this.projectBox(box, camera, target.group.matrixWorld);
+      if (r) subjectRects.set(id, r);
+    }
+    this.obstacles = [
+      ...subjectRects.values(),
+      ...this.scenery
+        .map((box) => this.projectBox(box, camera))
+        .filter((r): r is Rect => !!r),
+    ];
     const occupied: Rect[] = [];
-    for (const { target, sprite } of this.labels) {
-      sprite.getWorldPosition(this.point);
+    for (const { id, target, sprite } of this.labels) {
+      this.point.copy(this.anchors.get(sprite)!);
+      target.group.localToWorld(this.point);
       const depth = -this.point.clone().applyMatrix4(camera.matrixWorldInverse)
         .z;
       this.point.project(camera);
@@ -151,42 +223,64 @@ export class VisualPolish {
       const y = ((1 - this.point.y) * innerHeight) / 2;
       const factor =
         (innerHeight * camera.projectionMatrix.elements[5]) / (2 * depth);
-      const width = sprite.scale.x * factor;
-      const height = sprite.scale.y * factor;
-      const rect = {
-        left: x - width / 2,
-        right: x + width / 2,
-        top: y - height / 2,
-        bottom: y + height / 2,
-      };
-      this.bounds.set(sprite, rect);
+      const width = THREE.MathUtils.clamp(PLAQUES[id][2] * factor, 88, 132);
+      const height = (width * 96) / 512;
+      const at = (cx: number, cy: number): Rect => ({
+        left: cx - width / 2,
+        right: cx + width / 2,
+        top: cy - height / 2,
+        bottom: cy + height / 2,
+      });
       const eligible =
         !reaction &&
         depth > 0 &&
         this.point.z < 1 &&
         (!sprite.userData.intactOnly || !target.damaged) &&
         (!sprite.userData.damagedOnly || target.damaged);
-      const clear =
-        eligible &&
+      const fits = (rect: Rect) =>
         rect.top > (innerWidth < 600 ? 80 : 96) &&
         rect.bottom < innerHeight - 30 &&
         rect.left > 8 &&
         rect.right < innerWidth - 8 &&
         (!this.hud || !overlaps(rect, this.hud)) &&
-        !occupied.some((other) => overlaps(rect, other));
+        !occupied.some((other) => overlaps(rect, other)) &&
+        !this.obstacles.some((other) => overlaps(rect, other, 4));
+      const subject = subjectRects.get(id);
+      const candidates = [at(x, y)];
+      if (subject) {
+        const cx = (subject.left + subject.right) / 2;
+        const cy = (subject.top + subject.bottom) / 2;
+        for (const gap of [7, 23, 39, 55, 71])
+          for (const offset of [0, -width * 0.45, width * 0.45]) {
+            candidates.push(at(cx + offset, subject.bottom + height / 2 + gap));
+            candidates.push(at(cx + offset, subject.top - height / 2 - gap));
+          }
+        candidates.push(
+          at(subject.right + width / 2 + 7, cy),
+          at(subject.left - width / 2 - 7, cy),
+        );
+      }
+      const rect = candidates.find(fits) ?? candidates[0];
+      const clear = eligible && fits(rect);
+      this.bounds.set(sprite, rect);
+      if (clear) {
+        const cx = (rect.left + rect.right) / 2,
+          cy = (rect.top + rect.bottom) / 2;
+        const world = new THREE.Vector3(
+          (cx / innerWidth) * 2 - 1,
+          1 - (cy / innerHeight) * 2,
+          this.point.z,
+        ).unproject(camera);
+        sprite.position.copy(target.group.worldToLocal(world));
+        sprite.scale.set(width / factor, height / factor, 1);
+      }
       sprite.material.opacity = THREE.MathUtils.lerp(
         sprite.material.opacity,
         clear ? 0.94 : 0,
         fade,
       );
       // Hard exclusions prevent a fading label from covering the HUD or a result.
-      sprite.visible =
-        eligible &&
-        rect.top > (innerWidth < 600 ? 80 : 96) &&
-        rect.left > 8 &&
-        rect.right < innerWidth - 8 &&
-        (!this.hud || !overlaps(rect, this.hud)) &&
-        sprite.material.opacity > 0.025;
+      sprite.visible = clear && sprite.material.opacity > 0.025;
       if (clear) occupied.push(rect);
     }
   }
@@ -194,6 +288,7 @@ export class VisualPolish {
   snapshot() {
     return {
       mascotOpacity: this.mascotOpacity,
+      obstacles: this.obstacles,
       labels: this.labels.map(({ id, sprite }) => ({
         id,
         visible: sprite.visible,
@@ -263,9 +358,9 @@ export function addContactShadows(scene: THREE.Scene) {
     const angle = -1.22 + (i * 2.44) / 12;
     for (const side of [-6.5, 6.5]) {
       shadow(
-        125 * Math.sin(angle) + side * Math.cos(angle),
+        stadiumLayout.canopyRadius * Math.sin(angle) + side * Math.cos(angle),
         -0.114,
-        125 * Math.cos(angle) - side * Math.sin(angle),
+        stadiumLayout.canopyRadius * Math.cos(angle) - side * Math.sin(angle),
         2.6,
         2.6,
       );

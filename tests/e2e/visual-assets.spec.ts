@@ -37,10 +37,17 @@ test("graphics polish keeps labels clear of the HUD and freezes the dinosaur cut
     visual: window.__HOME_RUN_CHAOS__.getVisualState().composition,
   }));
   expect(reaction.state.lastTargetHit).toBe("dinosaur");
-  expect(reaction.visual.mascotOpacity).toBeLessThan(0.15);
+  expect(reaction.visual.mascotOpacity).toBe(1);
   expect(reaction.visual.labels.every((label) => !label.visible)).toBe(true);
   await page.keyboard.press("p");
+  const pausedJaw = (
+    await page.evaluate(() => window.__HOME_RUN_CHAOS__.getVisualState())
+  ).dinoJaw;
   await page.clock.runFor(500);
+  expect(
+    (await page.evaluate(() => window.__HOME_RUN_CHAOS__.getVisualState()))
+      .dinoJaw,
+  ).toEqual(pausedJaw);
   expect(
     (
       await page.evaluate(

@@ -125,11 +125,11 @@ test("dim lights stay dim until the next pitch", async ({ page }) => {
 // Exercise the production swing path, with a standard center pitch as the fixture.
 // No forced contact, launch velocity, ball position, or score is used here.
 for (const [id, error, aim] of [
-  ["scoreboard", 0, -0.32],
-  ["lights", 0, -0.637],
+  ["scoreboard", 0, -0.6007],
+  ["lights", 0, 0.7042],
   ["toilet", 0, 0.256],
-  ["baseball", 0, -0.888],
-  ["mascot", 0, 0.746],
+  ["baseball", 0, -0.9967],
+  ["mascot", 0, 0.7882],
   ["hotdog", 0, -0.127],
   ["ufo", 0, 0.17],
 ] as const) {

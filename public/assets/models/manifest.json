@@ -2,15 +2,15 @@
   "blender": "5.2.1 LTS",
   "assets": {
     "field": {
-      "triangles": 3440,
+      "triangles": 3408,
       "drawPrimitives": 9,
-      "bytes": 133740,
+      "bytes": 132124,
       "textures": 0
     },
     "stadium": {
-      "triangles": 95344,
-      "drawPrimitives": 7,
-      "bytes": 5122472,
+      "triangles": 95304,
+      "drawPrimitives": 8,
+      "bytes": 5256588,
       "textures": 0
     },
     "batter": {

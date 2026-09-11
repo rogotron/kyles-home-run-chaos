@@ -212,7 +212,9 @@ export function buildTargets(scene: THREE.Scene): Map<TargetId, TargetModel> {
       }
     }
     if (t.id === "scoreboard") {
-      for (const x of [-13, 13]) box(g, "#325969", x, 9, 0, 1.4, 18, 1.4);
+      const supportHeight = t.position.y - 6;
+      for (const x of [-13, 13])
+        box(g, "#325969", x, supportHeight / 2, 0, 1.4, supportHeight, 1.4);
       const sign = label(
         "SCOREBOARD SMASH",
         t.label + " BONUS",

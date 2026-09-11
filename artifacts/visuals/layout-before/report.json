@@ -1,0 +1,217 @@
+{
+  "gpu": "ANGLE (AMD, AMD Radeon(TM) 880M Graphics (0x0000150E) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "fps": 60.002400096003825,
+  "p95FrameMs": 16.799999999999727,
+  "render": {
+    "loaded": [
+      "field",
+      "stadium",
+      "batter",
+      "bat",
+      "baseball",
+      "home-plate",
+      "dinosaur"
+    ],
+    "drawCalls": 953,
+    "triangles": 215829,
+    "geometries": 246,
+    "textures": 20,
+    "batter": "blender-batter",
+    "hand": [
+      -1.35,
+      1.2096,
+      0.6047999853134156
+    ],
+    "handle": [
+      -1.35,
+      1.2656,
+      0.6271999853134156
+    ],
+    "dinoHead": [
+      0,
+      16,
+      0
+    ],
+    "dinoJaw": [
+      0,
+      -2.177202829261323,
+      -0.30000001192092896
+    ],
+    "ballColor": "fffdf2",
+    "composition": {
+      "mascotOpacity": 0.9999999981037386,
+      "labels": [
+        {
+          "id": "pizza",
+          "visible": false,
+          "opacity": 4.0483094756567413e-26,
+          "bounds": {
+            "left": 1334.2951109955627,
+            "right": 1484.0672180088307,
+            "top": 326.40637734914344,
+            "bottom": 354.31845183797975
+          }
+        },
+        {
+          "id": "goal",
+          "visible": true,
+          "opacity": 0.9399999956880492,
+          "bounds": {
+            "left": 939.7127318214957,
+            "right": 1054.6484318640619,
+            "top": 341.16173484225084,
+            "bottom": 364.72355335097683
+          }
+        },
+        {
+          "id": "ufo",
+          "visible": true,
+          "opacity": 0.9399999980625157,
+          "bounds": {
+            "left": 569.1846034604722,
+            "right": 674.6637300402659,
+            "top": 200.23889147911194,
+            "bottom": 221.8621124279697
+          }
+        },
+        {
+          "id": "dinosaur",
+          "visible": true,
+          "opacity": 0.9399999980625157,
+          "bounds": {
+            "left": 187.43081549007567,
+            "right": 309.48287761024255,
+            "top": 297.9114156539585,
+            "bottom": 322.9320883885927
+          }
+        },
+        {
+          "id": "toilet",
+          "visible": true,
+          "opacity": 0.9399999980625157,
+          "bounds": {
+            "left": 427.4887184592757,
+            "right": 531.8270789921187,
+            "top": 275.71274955468954,
+            "bottom": 297.1021134639223
+          }
+        },
+        {
+          "id": "scoreboard",
+          "visible": true,
+          "opacity": 0.9399999980625157,
+          "bounds": {
+            "left": 818.1685066272361,
+            "right": 927.8898603688034,
+            "top": 301.0575171818615,
+            "bottom": 319.80158177937926
+          }
+        },
+        {
+          "id": "lights",
+          "visible": true,
+          "opacity": 0.9399999930315667,
+          "bounds": {
+            "left": 1036.2682700795574,
+            "right": 1165.1531263985846,
+            "top": 228.32992586460588,
+            "bottom": 250.34775548577304
+          }
+        },
+        {
+          "id": "baseball",
+          "visible": true,
+          "opacity": 0.9399997237267442,
+          "bounds": {
+            "left": 1227.0081904792712,
+            "right": 1372.134033031831,
+            "top": 279.6900456608191,
+            "bottom": 302.57527467872274
+          }
+        },
+        {
+          "id": "baseball",
+          "visible": false,
+          "opacity": 7.853897682906163e-53,
+          "bounds": {
+            "left": 1227.0081904792712,
+            "right": 1372.134033031831,
+            "top": 279.6900456608191,
+            "bottom": 302.57527467872274
+          }
+        },
+        {
+          "id": "mascot",
+          "visible": true,
+          "opacity": 0.9399996308144453,
+          "bounds": {
+            "left": 45.516296637745086,
+            "right": 189.38597970270573,
+            "top": 340.3501766292939,
+            "bottom": 367.16225392776386
+          }
+        },
+        {
+          "id": "hotdog",
+          "visible": true,
+          "opacity": 0.9399993322992362,
+          "bounds": {
+            "left": 652.2462917625278,
+            "right": 794.8849179517956,
+            "top": 311.1274477863922,
+            "bottom": 335.49487976039217
+          }
+        },
+        {
+          "id": "hotdog",
+          "visible": false,
+          "opacity": 7.853897682906163e-53,
+          "bounds": {
+            "left": 652.2462917625278,
+            "right": 794.8849179517956,
+            "top": 311.1274477863922,
+            "bottom": 335.49487976039217
+          }
+        }
+      ]
+    }
+  },
+  "errors": [],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:5173/assets/models/field.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/models/stadium.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/models/batter.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/models/bat.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/models/baseball.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/models/home-plate.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/models/dinosaur.glb",
+      "status": 200
+    }
+  ],
+  "camera": [
+    29.197190963054673,
+    23.654508575737133,
+    40.36180569380885
+  ],
+  "target": "dinosaur",
+  "score": 6380
+}

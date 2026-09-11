@@ -66,9 +66,34 @@ are retained; no additional shadow cameras are needed.
 target faces, excludes the HUD and screen edges, and suppresses overlapping
 plaques. The HUD retains all five statistics in a shorter footprint. Stadium
 lettering appears on three pavilions instead of all thirteen. During the
-dinosaur reaction only, the foreground mascot fades to reveal the dinosaur;
-its geometry, position and Rapier surfaces are unchanged. This visual fade
-freezes on pause and returns to opaque for the next pitch.
+dinosaur reaction, the reorganized mascot now stays opaque in its own bay.
+The current layout pass supersedes the earlier temporary mascot fade.
+
+## Stadium layout
+
+`src/stadium-layout.json` shares the stadium dimensions between Blender and
+the procedural fallback. Flat chalk ribbons run from home plate along
+X = ±Z to the 72-metre wall. The two bright yellow poles stand at
+(±50.911688, 0, 50.911688), with 24-metre masts and mirrored open screens.
+The Blender `link` helper sets quaternion mode before its rotation, fixing
+the upright chalk cylinders in the previous export.
+
+Seating terraces now occupy radii 122, 132 and 142 metres, behind the
+attraction court. Canopies, crowd signs and floodlights use separate rear
+zones. The game retains every target, with selected anchors moved and the
+scoreboard slightly narrowed. Target positions are shared by rendering,
+aiming and Rapier; its surfaces still match the visible scoreboard and mast.
+
+Rebuild the two updated editable sources and GLBs:
+
+```powershell
+& 'C:\Program Files\Blender Foundation\Blender 5.2\blender.exe' --background --python assets/source/blender/build_assets.py -- field stadium
+```
+
+The camera retains its positions, follow motion and zoom timing, with
+responsive framing to include both foul corners and reserve space for the
+HUD in short windows. Plaques choose nearby empty screen space and render
+above scene geometry, while the baseball trail keeps its existing priority.
 
 The field's diamond is centred on Z=12.7, aligning its continuous clay paths
 with the original base coordinates. Fine grooves and pebble speckles were

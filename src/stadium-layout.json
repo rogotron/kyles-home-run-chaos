@@ -1,0 +1,15 @@
+{
+  "wallRadius": 72,
+  "foulAngle": 0.7853981633974483,
+  "poleHeight": 24,
+  "poleRadius": 0.14,
+  "terraceRadii": [122, 132, 142],
+  "canopyRadius": 157,
+  "crowdSignRadius": 149,
+  "floodlights": [
+    [-153.53, 87.97],
+    [-87.95, 153.54],
+    [87.95, 153.54],
+    [153.53, 87.97]
+  ]
+}

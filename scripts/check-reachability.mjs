@@ -4,7 +4,7 @@ import path from "node:path";
 await build({
   stdin: {
     contents:
-      "export {initPhysics} from './src/physics';export {targetedExitVelocity} from './src/batting';export {TARGETS} from './src/types';export {CONTACT_Z} from './src/batter';export {Pitching} from './src/pitching';export {classifySwing} from './src/scoring';",
+      "export {initPhysics} from './src/physics';export {targetedExitVelocity, exitVelocity} from './src/batting';export {TARGETS} from './src/types';export {CONTACT_Z} from './src/batter';export {Pitching} from './src/pitching';export {classifySwing} from './src/scoring';",
     resolveDir: process.cwd(),
   },
   outfile: ".local/physics-check.mjs",
@@ -13,8 +13,16 @@ await build({
   format: "esm",
   packages: "external",
 });
-const { initPhysics, targetedExitVelocity, TARGETS, Pitching, classifySwing } =
-  await import(pathToFileURL(path.resolve(".local/physics-check.mjs")).href);
+const {
+  initPhysics,
+  targetedExitVelocity,
+  exitVelocity,
+  TARGETS,
+  Pitching,
+  classifySwing,
+} = await import(pathToFileURL(path.resolve(".local/physics-check.mjs")).href);
+const unassisted = process.argv.includes("--unassisted");
+const launchVelocity = unassisted ? exitVelocity : targetedExitVelocity;
 const physics = await initPhysics();
 const profiles = {};
 for (const target of TARGETS) {
@@ -37,7 +45,7 @@ for (const target of TARGETS) {
         const quality = classifySwing(error);
         physics.launch(
           p,
-          targetedExitVelocity(quality, aim, pitching.location, error, p),
+          launchVelocity(quality, aim, pitching.location, error, p),
         );
         let hit = null;
         for (let i = 0; i < 400 && !hit; i++) {
@@ -66,7 +74,7 @@ for (const target of TARGETS) {
 physics.world.free();
 const { writeFile } = await import("node:fs/promises");
 await writeFile(
-  ".local/target-reachability.json",
+  `.local/target-reachability${unassisted ? "-unassisted" : ""}.json`,
   JSON.stringify(profiles, null, 2),
 );
 if (Object.values(profiles).some((profiles) => !profiles.length))

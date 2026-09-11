@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import type { TargetId, Vec3 } from "./types";
+import { TARGETS } from "./types";
 
 export interface TargetPart {
   kind: "box" | "ellipsoid" | "bowl" | "water";
@@ -25,10 +26,30 @@ const part = (
 // One geometry definition drives both visible meshes and collision surfaces.
 // Sizes are half extents / radii, relative to Target.position.
 export const TARGET_PARTS: Partial<Record<TargetId, TargetPart[]>> = {
-  scoreboard: [part("box", 0, 0, 0, 17, 7, 1, "#164451")],
+  scoreboard: [
+    part(
+      "box",
+      0,
+      0,
+      0,
+      TARGETS.find((t) => t.id === "scoreboard")!.half.x,
+      7,
+      1,
+      "#164451",
+    ),
+  ],
   lights: [
     part("box", 0, 0, 0, 6, 3, 0.7, "#325365"),
-    part("box", 0, -12, 0, 0.45, 12, 0.45, "#547b89"),
+    part(
+      "box",
+      0,
+      -TARGETS.find((t) => t.id === "lights")!.position.y / 2,
+      0,
+      0.45,
+      TARGETS.find((t) => t.id === "lights")!.position.y / 2,
+      0.45,
+      "#547b89",
+    ),
     ...Array.from({ length: 10 }, (_, i) =>
       part(
         "box",
