@@ -1,0 +1,14 @@
+{
+  "gpu": "ANGLE (AMD, AMD Radeon(TM) 880M Graphics (0x0000150E) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "fps": 60.00240009600385,
+  "p95FrameMs": 16.700000000000273,
+  "errors": [],
+  "requests": [],
+  "camera": [
+    29.059300164405197,
+    23.70812738894539,
+    39.93751844676889
+  ],
+  "target": "dinosaur",
+  "score": 6380
+}

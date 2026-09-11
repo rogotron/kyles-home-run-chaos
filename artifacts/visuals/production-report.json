@@ -1,0 +1,9 @@
+{
+  "score": "4,805",
+  "developmentHooksAbsent": true,
+  "consoleErrors": [],
+  "performance": {
+    "average": 59,
+    "p95FrameMs": 17
+  }
+}

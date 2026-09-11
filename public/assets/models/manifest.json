@@ -1,0 +1,47 @@
+{
+  "blender": "5.2.1 LTS",
+  "assets": {
+    "field": {
+      "triangles": 3440,
+      "drawPrimitives": 9,
+      "bytes": 133740,
+      "textures": 0
+    },
+    "stadium": {
+      "triangles": 95344,
+      "drawPrimitives": 7,
+      "bytes": 5122472,
+      "textures": 0
+    },
+    "batter": {
+      "triangles": 12424,
+      "drawPrimitives": 18,
+      "bytes": 386500,
+      "textures": 0
+    },
+    "bat": {
+      "triangles": 2872,
+      "drawPrimitives": 6,
+      "bytes": 84088,
+      "textures": 0
+    },
+    "baseball": {
+      "triangles": 2960,
+      "drawPrimitives": 2,
+      "bytes": 93892,
+      "textures": 0
+    },
+    "home-plate": {
+      "triangles": 136,
+      "drawPrimitives": 1,
+      "bytes": 6140,
+      "textures": 0
+    },
+    "dinosaur": {
+      "triangles": 19120,
+      "drawPrimitives": 18,
+      "bytes": 527876,
+      "textures": 0
+    }
+  }
+}

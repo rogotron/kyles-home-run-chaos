@@ -1,0 +1,13 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+.local/
+.vercel/
+.env
+.env.*
+!.env.example
+*.blend1
+*.blend2
+artifacts/*.log
+artifacts/gameplay-hashes-polish-before.json

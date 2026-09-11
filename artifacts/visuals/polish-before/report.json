@@ -1,0 +1,80 @@
+{
+  "gpu": "ANGLE (AMD, AMD Radeon(TM) 880M Graphics (0x0000150E) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "fps": 60.00480038403072,
+  "p95FrameMs": 16.799999999999727,
+  "render": {
+    "loaded": [
+      "field",
+      "stadium",
+      "batter",
+      "bat",
+      "baseball",
+      "home-plate",
+      "dinosaur"
+    ],
+    "drawCalls": 949,
+    "triangles": 221331,
+    "geometries": 243,
+    "textures": 17,
+    "batter": "blender-batter",
+    "hand": [
+      -1.35,
+      1.2096,
+      0.6047999853134156
+    ],
+    "handle": [
+      -1.35,
+      1.2656,
+      0.6271999853134156
+    ],
+    "dinoHead": [
+      0,
+      16,
+      0
+    ],
+    "dinoJaw": [
+      0,
+      -2.041918215967419,
+      -0.30000001192092896
+    ],
+    "ballColor": "fffdf2"
+  },
+  "errors": [],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:5173/assets/models/batter.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/models/field.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/models/stadium.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/models/bat.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/models/home-plate.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/models/baseball.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/models/dinosaur.glb",
+      "status": 200
+    }
+  ],
+  "camera": [
+    29.19719096305305,
+    23.654508575735353,
+    40.36180569381532
+  ],
+  "target": "dinosaur",
+  "score": 6380
+}

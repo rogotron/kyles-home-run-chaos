@@ -1,0 +1,34 @@
+[
+  {
+    "File": "physics.ts",
+    "Unchanged": true
+  },
+  {
+    "File": "pitching.ts",
+    "Unchanged": true
+  },
+  {
+    "File": "batting.ts",
+    "Unchanged": true
+  },
+  {
+    "File": "batter.ts",
+    "Unchanged": true
+  },
+  {
+    "File": "scoring.ts",
+    "Unchanged": true
+  },
+  {
+    "File": "state.ts",
+    "Unchanged": true
+  },
+  {
+    "File": "types.ts",
+    "Unchanged": true
+  },
+  {
+    "File": "target-shapes.ts",
+    "Unchanged": true
+  }
+]

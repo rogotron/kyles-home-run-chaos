@@ -1,0 +1,7 @@
+assets/source/
+artifacts/
+tests/
+scripts/
+playwright-report/
+test-results/
+.local/
