@@ -19,7 +19,7 @@ import { BATTER_STANCE, CONTACT_Z, poseSwing } from "./batter";
 import { VisualPolish, addContactShadows } from "./visual-polish";
 import {
   upgradeBatter,
-  upgradeDinosaur,
+  upgradeStadiumTargets,
   type VisualAssets,
 } from "./visual-assets";
 const up = new THREE.Vector3(0, 1, 0);
@@ -180,7 +180,7 @@ export class Rendering {
     this.mergeStaticGeometry();
     this.renderer.shadowMap.autoUpdate = false;
     this.targets = buildTargets(this.scene);
-    upgradeDinosaur(this.targets.get("dinosaur")!, assets.dinosaur);
+    upgradeStadiumTargets(this.targets, assets);
     this.polish = new VisualPolish(this.targets);
     this.batter = character(this.scene);
     this.batter.group.position.set(

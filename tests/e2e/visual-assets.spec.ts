@@ -1,5 +1,9 @@
 import { expect, test } from "@playwright/test";
-import { MODEL_NAMES } from "../../src/visual-assets";
+import { MODEL_NAMES, TARGET_MODEL_NAMES } from "../../src/visual-assets";
+const assetKeys = [
+  ...MODEL_NAMES,
+  ...TARGET_MODEL_NAMES.map((id) => `target-${id}`),
+];
 
 test("graphics polish keeps labels clear of the HUD and freezes the dinosaur cutaway on pause", async ({
   page,
@@ -109,7 +113,7 @@ test("GLBs are self-contained and remain within the vertical slice geometry budg
   expect(primitives).toBeLessThanOrEqual(64);
 });
 
-test("all seven models load before startup and preserve contact and golden-ball visuals", async ({
+test("all environment and target models load before startup and preserve contact and golden-ball visuals", async ({
   page,
 }) => {
   const errors: string[] = [];
@@ -132,7 +136,7 @@ test("all seven models load before startup and preserve contact and golden-ball 
   const visual = await page.evaluate(() =>
     window.__HOME_RUN_CHAOS__.getVisualState(),
   );
-  expect(visual.loaded.sort()).toEqual([...MODEL_NAMES].sort());
+  expect(visual.loaded.sort()).toEqual([...assetKeys].sort());
   expect(visual.batter).toBe("blender-batter");
   expect(visual.dinoHead).toEqual([0, 16, 0]);
   await expect(page.locator(".loading")).toHaveCount(0);
@@ -172,7 +176,7 @@ test("slow assets remain behind the loading screen until the complete scene is r
   const held = new Promise<void>((resolve) => {
     release = resolve;
   });
-  await page.route("**/assets/models/dinosaur.glb", async (route) => {
+  await page.route("**/assets/targets/dinosaur.glb", async (route) => {
     await held;
     await route.continue();
   });
@@ -185,13 +189,13 @@ test("slow assets remain behind the loading screen until the complete scene is r
   expect(
     (await page.evaluate(() => window.__HOME_RUN_CHAOS__.getVisualState()))
       .loaded,
-  ).toHaveLength(7);
+  ).toHaveLength(assetKeys.length);
 });
 
 test("unavailable assets retain playable procedural fallbacks for the entire round", async ({
   page,
 }) => {
-  await page.route("**/assets/models/*.glb", (route) =>
+  await page.route(/\/assets\/(models|targets)\/.*\.glb$/, (route) =>
     route.fulfill({
       status: 200,
       contentType: "model/gltf-binary",

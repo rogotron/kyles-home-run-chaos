@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:4173",
+  "score": "2,675",
+  "developmentHooksAbsent": true,
+  "consoleErrors": [],
+  "performance": {
+    "average": 60,
+    "p95FrameMs": 17
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "blender": "5.2.1 LTS",
+  "coordinates": "Y-up, identity root, game-unit scale",
+  "assets": {
+    "dinosaur": {
+      "triangles": 14440,
+      "drawPrimitives": 3,
+      "bytes": 503028,
+      "materials": 1,
+      "textures": 0,
+      "roles": [
+        "Root",
+        "Head",
+        "Jaw",
+        "Static"
+      ]
+    },
+    "toilet": {
+      "triangles": 5076,
+      "drawPrimitives": 4,
+      "bytes": 224608,
+      "materials": 3,
+      "textures": 0,
+      "roles": [
+        "Root",
+        "Moving",
+        "Static"
+      ]
+    },
+    "hotdog": {
+      "triangles": 4688,
+      "drawPrimitives": 3,
+      "bytes": 159832,
+      "materials": 1,
+      "textures": 0,
+      "roles": [
+        "Root",
+        "Moving",
+        "Static",
+        "Tether"
+      ]
+    },
+    "goal": {
+      "triangles": 1552,
+      "drawPrimitives": 3,
+      "bytes": 91020,
+      "materials": 3,
+      "textures": 0,
+      "roles": [
+        "Root",
+        "Moving",
+        "Static"
+      ]
+    },
+    "ufo": {
+      "triangles": 7232,
+      "drawPrimitives": 15,
+      "bytes": 268820,
+      "materials": 3,
+      "textures": 0,
+      "roles": [
+        "Root",
+        "Moving",
+        "Light0",
+        "Light1",
+        "Light10",
+        "Light11",
+        "Light2",
+        "Light3",
+        "Light4",
+        "Light5",
+        "Light6",
+        "Light7",
+        "Light8",
+        "Light9",
+        "Static"
+      ]
+    },
+    "scoreboard": {
+      "triangles": 6160,
+      "drawPrimitives": 3,
+      "bytes": 478720,
+      "materials": 2,
+      "textures": 0,
+      "roles": [
+        "Root",
+        "Moving",
+        "Static"
+      ]
+    },
+    "lights": {
+      "triangles": 9384,
+      "drawPrimitives": 2,
+      "bytes": 631372,
+      "materials": 2,
+      "textures": 0,
+      "roles": [
+        "Root",
+        "Moving",
+        "Static"
+      ]
+    },
+    "baseball": {
+      "triangles": 6100,
+      "drawPrimitives": 3,
+      "bytes": 239740,
+      "materials": 1,
+      "textures": 0,
+      "roles": [
+        "Root",
+        "Moving",
+        "Static",
+        "Tether"
+      ]
+    },
+    "mascot": {
+      "triangles": 7176,
+      "drawPrimitives": 3,
+      "bytes": 259924,
+      "materials": 1,
+      "textures": 0,
+      "roles": [
+        "Root",
+        "Moving",
+        "Static",
+        "Tether"
+      ]
+    },
+    "pizza": {
+      "triangles": 10980,
+      "drawPrimitives": 4,
+      "bytes": 556956,
+      "materials": 4,
+      "textures": 0,
+      "roles": [
+        "Root",
+        "Moving",
+        "Static"
+      ]
+    }
+  }
+}

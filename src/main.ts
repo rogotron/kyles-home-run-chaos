@@ -1,4 +1,5 @@
 import "./style.css";
+import * as THREE from "three";
 import { Rendering } from "./rendering";
 import { initPhysics, estimateLandingDistance } from "./physics";
 import type { Physics } from "./physics";
@@ -631,6 +632,66 @@ export class Game {
           triangles: view.renderer.info.render.triangles,
           geometries: view.renderer.info.memory.geometries,
           textures: view.renderer.info.memory.textures,
+          targetAssets: Object.fromEntries(
+            [...view.targets].map(([id, target]) => {
+              const bounds = {
+                left: Infinity,
+                top: Infinity,
+                right: -Infinity,
+                bottom: -Infinity,
+              };
+              let triangles = 0,
+                primitives = 0;
+              const subject = new Set<THREE.Object3D>();
+              (["ufo", "baseball", "mascot", "hotdog", "scoreboard"].includes(
+                id,
+              )
+                ? target.moving
+                : target.group
+              ).traverse((node) => subject.add(node));
+              target.group.traverseVisible((node) => {
+                if (
+                  !(node instanceof THREE.Mesh) ||
+                  node.userData.collisionProxyVisual
+                )
+                  return;
+                triangles +=
+                  (node.geometry.index?.count ??
+                    node.geometry.attributes.position.count) / 3;
+                primitives += node.geometry.groups.length || 1;
+                if (!subject.has(node)) return;
+                node.geometry.computeBoundingBox();
+                const box = node.geometry.boundingBox!;
+                for (const x of [box.min.x, box.max.x])
+                  for (const y of [box.min.y, box.max.y])
+                    for (const z of [box.min.z, box.max.z]) {
+                      const p = new THREE.Vector3(x, y, z)
+                        .applyMatrix4(node.matrixWorld)
+                        .project(view.camera);
+                      const sx = ((p.x + 1) * innerWidth) / 2,
+                        sy = ((1 - p.y) * innerHeight) / 2;
+                      bounds.left = Math.min(bounds.left, sx);
+                      bounds.right = Math.max(bounds.right, sx);
+                      bounds.top = Math.min(bounds.top, sy);
+                      bounds.bottom = Math.max(bounds.bottom, sy);
+                    }
+              });
+              return [
+                id,
+                {
+                  integrated: target.group.userData.targetAsset === id,
+                  triangles,
+                  primitives,
+                  bounds,
+                  position: target.group.position.toArray(),
+                  moving: target.moving.position.toArray(),
+                  proxiesHidden: target.surfaces.every(
+                    (surface) => !surface.visible,
+                  ),
+                },
+              ];
+            }),
+          ),
           batter: view.batter.group.name,
           hand: view.batter.arm
             .localToWorld(view.desired.clone().set(0.12, -0.42, 0))
@@ -739,6 +800,23 @@ declare global {
         triangles: number;
         geometries: number;
         textures: number;
+        targetAssets: Record<
+          TargetId,
+          {
+            integrated: boolean;
+            triangles: number;
+            primitives: number;
+            bounds: {
+              left: number;
+              top: number;
+              right: number;
+              bottom: number;
+            };
+            position: number[];
+            moving: number[];
+            proxiesHidden: boolean;
+          }
+        >;
         batter: string;
         hand: number[];
         handle: number[];
