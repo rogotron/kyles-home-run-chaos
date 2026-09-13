@@ -7,14 +7,14 @@ const manifest = JSON.parse(
 const labels = {
   dinosaur: "Hungry dino",
   toilet: "Chaos toilet",
-  hotdog: "Inflatable hot dog",
+  sock: "Inflatable sock",
   goal: "Soccer goal",
   ufo: "UFO",
   scoreboard: "Scoreboard",
   lights: "Light tower",
   baseball: "Inflatable baseball",
   mascot: "Wobbly mascot",
-  pizza: "Pizza truck",
+  icecream: "Ice cream truck",
 };
 const css = `*{box-sizing:border-box}body{margin:0;padding:36px;background:#153c48;color:#fff3d1;font:16px system-ui}h1{font-size:36px;margin:0 0 8px}p{color:#b1d6df;margin:0 0 28px}main{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}figure{margin:0;background:#204d59;border:1px solid #47737b;border-radius:18px;overflow:hidden}figure img{display:block;width:100%;height:280px;object-fit:contain;background:#a0dfeb}figcaption{padding:15px;font-weight:700;font-size:18px}small{display:block;font-size:12px;font-weight:400;color:#b1d6df;margin-top:6px}.strip{height:290px;overflow:hidden;border-radius:12px;margin-bottom:24px}.strip img{width:1440px;max-width:none;display:block;transform:translateY(-165px)}h2{font-size:21px;margin:16px 0 10px}.views{display:flex;gap:20px}.views img{max-height:700px;max-width:1100px;object-fit:contain}`;
 await writeFile(

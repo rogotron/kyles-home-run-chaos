@@ -22,7 +22,7 @@ console.log(JSON.stringify(state.composition.labels));
 await mkdir(".local/layout-tour", { recursive: true });
 await writeFile(".local/layout-labels.json", JSON.stringify(state, null, 2));
 const targets = [
-  "pizza",
+  "icecream",
   "goal",
   "ufo",
   "dinosaur",
@@ -31,7 +31,7 @@ const targets = [
   "lights",
   "baseball",
   "mascot",
-  "hotdog",
+  "sock",
 ];
 for (const target of targets) {
   const html = `<!doctype html><meta charset="utf-8"><style>body{margin:0;background:#123849;color:#fff5d8;font:18px system-ui}h1{margin:20px}main{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}figure{margin:0}img{display:block;width:100%}figcaption{padding:6px}</style><h1>${target.toUpperCase()} · flight, reaction and return</h1><main>${Array.from({ length: 10 }, (_, i) => `<figure><img src="${target}-${(i + 1) * 600}.png"><figcaption>${((i + 1) * 0.6).toFixed(1)} s</figcaption></figure>`).join("")}</main>`;

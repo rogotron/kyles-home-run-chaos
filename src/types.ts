@@ -12,13 +12,13 @@ export type TargetId =
   | "goal"
   | "dinosaur"
   | "ufo"
-  | "pizza"
+  | "icecream"
   | "toilet"
   | "scoreboard"
   | "lights"
   | "baseball"
   | "mascot"
-  | "hotdog";
+  | "sock";
 export interface Vec3 {
   x: number;
   y: number;
@@ -37,14 +37,14 @@ export interface Target {
 }
 export const TARGETS: Target[] = [
   {
-    id: "pizza",
-    name: "Pizza truck",
+    id: "icecream",
+    name: "Ice cream truck",
     label: "+2,000",
     bonus: 2000,
-    color: "#ff8b45",
+    color: "#8de5df",
     position: { x: -57, y: 6, z: 84 },
     half: { x: 7, y: 6, z: 4 },
-    message: "PIZZA DELIVERY!",
+    message: "ICE CREAM PARTY!",
   },
   {
     id: "goal",
@@ -128,14 +128,14 @@ export const TARGETS: Target[] = [
     message: "MASCOT WOBBLE!",
   },
   {
-    id: "hotdog",
-    name: "Inflatable hot dog",
+    id: "sock",
+    name: "Inflatable sock",
     label: "+2,500",
     bonus: 2500,
-    color: "#ffb65f",
+    color: "#f58192",
     position: { x: -7, y: 14, z: 82 },
-    half: { x: 8, y: 4, z: 3.5 },
-    message: "HOT DOG DOWN!",
+    half: { x: 8, y: 7, z: 3.5 },
+    message: "SOCK IT TO ME!",
     permanent: true,
   },
 ];

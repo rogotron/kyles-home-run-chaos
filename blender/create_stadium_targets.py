@@ -170,22 +170,26 @@ def toilet():
     lathe('Water opening','water',[(0,-.10),(3.94,-.10),(3.94,-.06),(0,-.06)],m,scale=(1,1,1.07),style='ceramic')
     tube('Flush swirl','glass',[(math.cos(a)*r,.015,math.sin(a)*r*1.06) for a,r in [(i*math.pi*6/80,.25+i*3.5/80) for i in range(81)]],.045,m)
 
-def hotdog():
-    root,s,m=start('hotdog');base(s,'gold');tether(root,10.3)
-    # Two soft bun halves cradle an independent sausage with a clear groove.
-    ball('Lower bun bridge','bun',(0,-1.15,.1),(7.95,2.6,3.35),m,28,14)
-    ball('Rear bun roll','bunlight',(0,-.25,1.8),(7.7,2.0,1.65),m,28,14)
-    ball('Inflated sausage','sausage',(0,.95,-.48),(7.48,2.18,2.27),m,28,14)
-    ball('Front bun roll','bun',(0,-1.25,-2.15),(7.7,1.48,1.32),m,28,14)
-    tube('Bun edge seam','bunlight',[(-6,-1.25,-2.9),(-3,-1.65,-3.38),(0,-1.72,-3.49),(3,-1.65,-3.38),(6,-1.25,-2.9)],.09,m,smooth=True)
-    points=[]
-    for i in range(65):
-        x=-6.15+i*12.3/64;y=1.75+math.sin(i/64*math.pi*8)*.44
-        z=-.48-2.31*math.sqrt(max(.08,1-(x/7.5)**2-((y-.95)/2.2)**2))
-        points.append((x,y,z-.05))
-    tube('Generous mustard ribbon','yellow',points,.22,m)
-    for x in [-4.8,-2.4,0,2.4,4.8]:
-        ball('Bun sesame dash','cream',(x,-.26,-3.11),(.26,.085,.10),m,10,6)
+def sock():
+    root,s,m=start('sock');base(s,'pink');tether(root,8.5)
+    shaft=ball('Inflated sock leg','white',(2,1,0),(2.7,5.3,2.5),m,28,18)
+    foot=ball('Rounded sock foot','white',(-1.2,-3.4,0),(5.7,2.6,2.5),m,32,18)
+    # Fuse the leg and foot into one smooth, sealed vinyl silhouette.
+    bpy.ops.object.select_all(action='DESELECT')
+    shaft.select_set(True);foot.select_set(True);bpy.context.view_layer.objects.active=shaft
+    bpy.ops.object.join();bpy.ops.object.transform_apply(location=False,rotation=False,scale=True)
+    remesh=shaft.modifiers.new('Continuous inflated sock','REMESH');remesh.mode='VOXEL';remesh.voxel_size=.25
+    bpy.ops.object.modifier_apply(modifier=remesh.name)
+    smooth=shaft.modifiers.new('Soft vinyl','SMOOTH');smooth.factor=1.2;smooth.iterations=5
+    bpy.ops.object.modifier_apply(modifier=smooth.name)
+    decimate=shaft.modifiers.new('Mobile geometry budget','DECIMATE');decimate.ratio=.32
+    bpy.ops.object.modifier_apply(modifier=decimate.name)
+    for face in shaft.data.polygons:face.use_smooth=True
+    ball('Pink reinforced toe','pink',(-5.2,-3.45,0),(2.1,2.25,2.52),m,24,14)
+    ball('Mint heel patch','glass',(2.3,-3.2,.2),(2.3,2.2,2.5),m,24,14)
+    ball('Puffy ribbed cuff','pink',(2,5.5,0),(2.85,1.3,2.65),m,28,14)
+    for y in [4.9,5.8]:ring('White cuff stripe','white',(2,y,0),2.72,2.53,.16,m)
+    tube('Toe stitching','cream',[(-5.1,-5.15,-1.65),(-5.3,-4.4,-2.3),(-5.35,-3.4,-2.53),(-5.3,-2.4,-2.25),(-5.1,-1.8,-1.7)],.055,m,smooth=True)
 
 def goal():
     root,s,m=start('goal')
@@ -291,11 +295,11 @@ def mascot():
     box('Cap bill','darkpurple',(0,7.1,-2.45),(4.9,.25,2.1),m,.30)
     ball('Cap button','gold',(0,8.30,-.1),(.28,.20,.28),m,12,8)
 
-def pizza():
-    root,s,m=start('pizza')
-    box('Rounded truck body','orange',(0,4,0),(12,6,6),s,.48)
+def icecream():
+    root,s,m=start('icecream')
+    box('Rounded truck body','glass',(0,4,0),(12,6,6),s,.48)
     box('Roof lip','cream',(0,7.07,0),(12.5,.45,6.5),s,.18)
-    box('Delivery cab','red',(-8,3,0),(4,4,5.8),s,.48)
+    box('Ice cream cab','pink',(-8,3,0),(4,4,5.8),s,.48)
     box('Cab roof','cream',(-8,5.4,0),(4.1,.45,5.9),s,.20)
     box('Cab glazing','glass',(-8,4.6,-2.84),(3.1,1.25,.12),s,.19,'ceramic')
     box('Windshield','glass',(-10.01,4.6,0),(.08,1.25,4.4),s,.16,'ceramic')
@@ -304,8 +308,8 @@ def pizza():
     box('Serving window inset','navy',(0,4.4,-3.23),(7,2.6,.12),s,.12)
     box('Service shelf','cream',(0,2.95,-3.65),(8,.30,1.3),s,.12)
     for i in range(6):
-        box('Candy stripe awning','cream' if i%2 else 'red',(-5+i*2,6.75,-3.65),(2,.40,1.65),s,.12)
-        ball('Awning scallop','cream' if i%2 else 'red',(-5+i*2,6.48,-4.45),(1,.30,.15),s,12,8)
+        box('Candy stripe awning','cream' if i%2 else 'pink',(-5+i*2,6.75,-3.65),(2,.40,1.65),s,.12)
+        ball('Awning scallop','cream' if i%2 else 'pink',(-5+i*2,6.48,-4.45),(1,.30,.15),s,12,8)
     for x in [-7,4]:
         for z in [-3,3]:
             link('Rubber tire','black',(x,1.25,z-.30),(x,1.25,z+.30),1.25,s,seg=20)
@@ -313,19 +317,25 @@ def pizza():
             ball('Chrome hub','lightsteel',(x,1.25,z*1.15),(.62,.62,.12),s,16,10,'metal')
             ball('Hub button','gold',(x,1.25,z*1.19),(.23,.23,.09),s,12,8,'metal')
     for z in [-1.9,1.9]:ball('Headlamp','cream',(-10.0,2.85,z),(.14,.36,.44),s,12,8,'lens')
-    link('Pizza sign bracket','steel',(0,7.2,.15),(0,9,.15),.15,s,style='metal')
-    ball('Pizza crust sign','bun',(0,9,0),(3.4,3.4,.39),s,32,16)
-    ball('Pizza cheese face','yellow',(0,9,-.35),(2.95,2.95,.12),s,28,14)
-    for x,y in [(-1.5,10.3),(.6,10.8),(1.6,9),(-.5,8.4),(-1.9,8.3),(.8,7.3)]:ball('Pepperoni','red',(x,y,-.48),(.47,.47,.09),s,12,8)
+    link('Giant waffle cone','bun',(0,7.15,0),(0,10.25,0),.25,s,r2=1.65,seg=24)
+    for y in [7.8,8.4,9,9.6]:
+        radius=.25+(y-7.15)/3.1*1.4
+        ring('Waffle cone ridges','bunlight',(0,y,0),radius,radius,.055,s)
+    ball('Vanilla scoop','white',(0,10.5,0),(2.15,1.65,2.05),s,28,16)
+    ball('Strawberry scoop','pink',(0,12,0),(1.5,1.3,1.5),s,24,14)
+    ball('Cherry on top','red',(0,13.25,0),(.35,.35,.35),s,16,10)
+    for x,color in [(-2.3,'pink'),(0,'white'),(2.3,'glass')]:
+        link('Window cone','bun',(x,3.4,-3.4),(x,4.2,-3.4),.06,s,r2=.4)
+        ball('Window scoop',color,(x,4.45,-3.4),(.53,.53,.4),s,16,10)
 
-for build in [dinosaur,toilet,hotdog,goal,ufo,scoreboard,lights,baseball,mascot,pizza]:build()
+for build in [dinosaur,toilet,sock,goal,ufo,scoreboard,lights,baseball,mascot,icecream]:build()
 
 # Save editable source, arranged in a labelled grid without altering exported pivots.
 for i,(name,root) in enumerate(ASSETS.items()):
     root.location=xyz(((i%5)*36,0,(i//5)*48))
     # Display the fully assembled props in the editable Blender gallery.
     # These attachment offsets belong to Three.js at runtime, so reset below.
-    attachment={'toilet':(0,6.6,-1),'hotdog':(0,14,0),'scoreboard':(0,25,0),
+    attachment={'toilet':(0,6.6,-1),'sock':(0,14,0),'scoreboard':(0,25,0),
                 'lights':(0,27,0),'baseball':(0,24,0),'mascot':(0,14,0)}.get(name,(0,0,0))
     for child in root.children:
         if child.get('targetRole')=='Moving':child.location=xyz(attachment)

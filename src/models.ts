@@ -235,7 +235,7 @@ export function buildTargets(scene: THREE.Scene): Map<TargetId, TargetModel> {
       sign.position.set(-3, 34, 0);
       g.add(sign);
     }
-    if (["baseball", "mascot", "hotdog"].includes(t.id)) {
+    if (["baseball", "mascot", "sock"].includes(t.id)) {
       // Small platforms and tethers distinguish the toys from the real ball.
       cylinder(g, t.color, 0, 0.25, 0, 5.8, 6.2, 0.5);
       const tether = cylinder(g, "#f5ecd2", 0, 4, 0, 0.09, 0.09, 8);
@@ -264,27 +264,18 @@ export function buildTargets(scene: THREE.Scene): Map<TargetId, TargetModel> {
         }
         sphere(moving, "#ffb879", 0, 3.9, -3.7, 1.1, 0.7, 0.7);
       } else {
-        const mustard = Array.from(
-          { length: 45 },
-          (_, i) =>
-            new THREE.Vector3(
-              -6 + (i * 12) / 44,
-              1.9 + Math.sin(i * 0.7) * 0.4,
-              -2.25,
-            ),
-        );
-        moving.add(
-          new THREE.Mesh(
-            new THREE.TubeGeometry(
-              new THREE.CatmullRomCurve3(mustard),
-              44,
-              0.25,
-              6,
-              false,
-            ),
-            mat("#ffe16f"),
-          ),
-        );
+        sphere(moving, "#f58192", -5.2, -3.45, 0, 2.1, 2.25, 2.52);
+        sphere(moving, "#8de5df", 2.3, -3.2, 0.2, 2.3, 2.2, 2.5);
+        for (const y of [4.9, 5.8]) {
+          const stripe = new THREE.Mesh(
+            new THREE.TorusGeometry(2.72, 0.16, 8, 32),
+            mat("#fff9ef"),
+          );
+          stripe.rotation.x = Math.PI / 2;
+          stripe.scale.y = 0.93;
+          stripe.position.set(2, y, 0);
+          moving.add(stripe);
+        }
       }
       const sign = label(
         t.name.toUpperCase(),
@@ -295,8 +286,8 @@ export function buildTargets(scene: THREE.Scene): Map<TargetId, TargetModel> {
       );
       sign.position.set(
         0,
-        t.id === "mascot" ? 6.5 : t.id === "hotdog" ? 9 : t.position.y + 10,
-        t.id === "mascot" || t.id === "hotdog" ? -5 : 0,
+        t.id === "mascot" ? 6.5 : t.id === "sock" ? 9 : t.position.y + 10,
+        t.id === "mascot" || t.id === "sock" ? -5 : 0,
       );
       sign.userData.intactOnly = !!t.permanent;
       g.add(sign);
@@ -453,10 +444,10 @@ export function buildTargets(scene: THREE.Scene): Map<TargetId, TargetModel> {
       sign.position.y = 7;
       g.add(sign);
     }
-    if (t.id === "pizza") {
-      box(g, "#ff9151", 0, 4, 0, 12, 6, 6);
+    if (t.id === "icecream") {
+      box(g, "#8de5df", 0, 4, 0, 12, 6, 6);
       box(g, "#f9e6af", 0, 7.1, 0, 12.5, 0.4, 6.5);
-      box(g, "#e85857", -8, 3, 0, 4, 4, 5.8);
+      box(g, "#f58192", -8, 3, 0, 4, 4, 5.8);
       box(g, "#a6e8e5", -8, 5, -0.03, 3.6, 1.8, 5.5);
       box(g, "#163e4c", 0, 4.4, -3.06, 7, 2.7, 0.1);
       box(g, "#fff5d6", 0, 2.8, -3.4, 8, 0.25, 1);
@@ -478,34 +469,26 @@ export function buildTargets(scene: THREE.Scene): Map<TargetId, TargetModel> {
           const hub = cylinder(g, "#f8ead2", x, 1.2, z * 1.11, 0.6, 0.6, 0.07);
           hub.rotation.x = Math.PI / 2;
         }
-      const pizza = cylinder(g, "#f4be5f", 0, 9, 0, 3.4, 3.4, 0.6);
-      pizza.rotation.x = Math.PI / 2;
-      for (let i = 0; i < 8; i++) {
-        const a = i * 2.4;
-        sphere(
-          g,
-          "#e6564d",
-          Math.sin(a) * 2.2,
-          9 + Math.cos(a) * 2.2,
-          -0.5,
-          0.5,
-          0.5,
-          0.16,
-        );
-      }
+      cylinder(g, "#efb864", 0, 8.7, 0, 1.65, 0.25, 3.1, 24);
+      sphere(g, "#fff9ef", 0, 10.5, 0, 2.15, 1.65, 2.05);
+      sphere(g, "#f58192", 0, 12, 0, 1.5, 1.3, 1.5);
+      sphere(g, "#e85857", 0, 13.25, 0, 0.35);
       for (let i = 0; i < 6; i++) {
-        const slice = cylinder(g, "#ffcd64", 0, 7, 0, 0, 1.25, 0.22, 3);
-        slice.visible = false;
-        extras.push(slice);
-        g.add(slice);
+        const cone = new THREE.Group();
+        cylinder(cone, "#efb864", 0, -0.45, 0, 0.62, 0.05, 1.5);
+        sphere(
+          cone,
+          ["#f58192", "#fff9ef", "#8de5df"][i % 3],
+          0,
+          0.55,
+          0,
+          0.85,
+        );
+        cone.visible = false;
+        extras.push(cone);
+        g.add(cone);
       }
-      const sign = label(
-        "PIZZA PARTY",
-        "SPECIAL DELIVERY · +2,000",
-        t.color,
-        18,
-        4,
-      );
+      const sign = label("ICE CREAM", "SCOOP IT UP · +2,000", t.color, 18, 4);
       sign.position.set(0, 15, 0);
       g.add(sign);
     }

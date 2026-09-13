@@ -27,10 +27,10 @@
         "Static"
       ]
     },
-    "hotdog": {
-      "triangles": 4688,
+    "sock": {
+      "triangles": 7366,
       "drawPrimitives": 3,
-      "bytes": 159832,
+      "bytes": 227704,
       "materials": 1,
       "textures": 0,
       "roles": [
@@ -126,10 +126,10 @@
         "Tether"
       ]
     },
-    "pizza": {
-      "triangles": 10980,
+    "icecream": {
+      "triangles": 13416,
       "drawPrimitives": 4,
-      "bytes": 556956,
+      "bytes": 639356,
       "materials": 4,
       "textures": 0,
       "roles": [

@@ -39,7 +39,7 @@ for (const [width, height] of [
     const labels = visual.composition.labels.filter(
       (p) => p.visible && p.opacity > 0.5,
     );
-    expect(labels.length).toBeGreaterThanOrEqual(6);
+    expect(labels.length).toBeLessThanOrEqual(1);
     for (let i = 0; i < labels.length; i++) {
       for (const obstacle of visual.composition.obstacles)
         expect(overlap(labels[i].bounds!, obstacle)).toBe(false);

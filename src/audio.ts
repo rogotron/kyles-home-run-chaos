@@ -10,7 +10,7 @@ type Sound =
   | "goal"
   | "dinosaur"
   | "ufo"
-  | "pizza"
+  | "icecream"
   | "toilet"
   | "countdown"
   | "end";
@@ -118,9 +118,9 @@ export class GameAudio {
         this.tone(300, 0.3, "sine", 0.2, d, 1600),
       );
     }
-    if (sound === "pizza") {
-      [660, 880, 1100].forEach((f, i) =>
-        this.tone(f, 0.2, "square", 0.09, i * 0.13),
+    if (sound === "icecream") {
+      [784, 659, 659, 698, 587, 587, 523].forEach((f, i) =>
+        this.tone(f, 0.25, "triangle", 0.14, i * 0.17),
       );
     }
     if (sound === "toilet") {
@@ -145,7 +145,7 @@ export class GameAudio {
       [0, 0.25, 0.5, 0.8].forEach((d) =>
         this.tone(260, 0.25, "triangle", 0.14, d, 520),
       );
-    if (sound === "hotdog") {
+    if (sound === "sock") {
       this.noise(1.5, 0.3, 1700);
       this.tone(600, 1.5, "sine", 0.15, 0, 55);
     }

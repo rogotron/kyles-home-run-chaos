@@ -100,7 +100,7 @@ export function upgradeStadiumTargets(
     const statics = roles.get("Static");
     const moving = roles.get("Moving");
     const tether = roles.get("Tether");
-    const inflatable = ["baseball", "hotdog", "mascot"].includes(id);
+    const inflatable = ["baseball", "sock", "mascot"].includes(id);
     const head = roles.get("Head"),
       jaw = roles.get("Jaw");
     const lamps = Array.from({ length: 12 }, (_, i) => roles.get(`Light${i}`));
@@ -121,8 +121,8 @@ export function upgradeStadiumTargets(
     if (id === "lights" && !lenses?.isMesh) continue;
 
     const protectedNodes = new Set<THREE.Object3D>();
-    // The transient pizza/flush effects retain their exact original references.
-    if (id === "pizza" || id === "toilet")
+    // The transient ice cream/flush effects retain their exact original references.
+    if (id === "icecream" || id === "toilet")
       for (const extra of target.extras)
         extra.traverse((node) => protectedNodes.add(node));
     target.group.traverse((node) => {

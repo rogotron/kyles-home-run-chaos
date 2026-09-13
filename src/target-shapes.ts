@@ -70,9 +70,10 @@ export const TARGET_PARTS: Partial<Record<TargetId, TargetPart[]>> = {
     part("ellipsoid", -5, -0.7, 0, 2, 3, 2, "#8e9eff"),
     part("ellipsoid", 5, -0.7, 0, 2, 3, 2, "#8e9eff"),
   ],
-  hotdog: [
-    part("ellipsoid", 0, -1, 0, 8, 3, 3.5, "#efb864"),
-    part("ellipsoid", 0, 1, -0.5, 7.5, 2.2, 2.3, "#ed795a"),
+  sock: [
+    part("ellipsoid", 2, 1, 0, 2.7, 5.3, 2.5, "#fff9ef"),
+    part("ellipsoid", -1.2, -3.4, 0, 5.7, 2.6, 2.5, "#fff9ef"),
+    part("ellipsoid", 2, 5.5, 0, 2.85, 1.3, 2.65, "#f58192"),
   ],
   toilet: [
     part("bowl", 0, 0, -1, 1, 1, 1.12, "#fff9ef"),

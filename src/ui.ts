@@ -36,7 +36,7 @@ export class UI {
         .reverse()
         .map(
           (t) =>
-            `<div class="target-card" data-target="${t.id}" style="--target:${t.color}"><span class="target-icon">${{ goal: "⚽", dinosaur: "🦖", ufo: "🛸", pizza: "🍕", toilet: "🚽", scoreboard: "🎯", lights: "💡", baseball: "⚾", mascot: "🎈", hotdog: "🌭" }[t.id]}</span><div><strong>${t.name.toUpperCase()}</strong><span>${t.label}</span></div><i>↗</i></div>`,
+            `<div class="target-card" data-target="${t.id}" style="--target:${t.color}"><span class="target-icon">${{ goal: "⚽", dinosaur: "🦖", ufo: "🛸", icecream: "🍦", toilet: "🚽", scoreboard: "🎯", lights: "💡", baseball: "⚾", mascot: "🎈", sock: "🧦" }[t.id]}</span><div><strong>${t.name.toUpperCase()}</strong><span>${t.label}</span></div><i>↗</i></div>`,
         )
         .join("")}</section>
       <footer class="bottom-bar"><span><b>MOVE MOUSE / ← →</b> AIM <i>·</i> <b>SPACE / CLICK</b> SWING <i>·</i> <b>P</b> PAUSE <i>·</i> <b>R</b> RESTART</span><span class="footer-right">SMALL SLUGGER. <b>LEGENDARY CHAOS.</b></span></footer>

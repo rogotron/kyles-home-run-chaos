@@ -21,8 +21,8 @@ const perfRows=['desktop','mobile'].map(v=>`| ${v==='desktop'?'1440 × 900':'390
 await writeFile('artifacts/targets/VERIFICATION.md',`# Stadium target asset verification
 
 Ten original Blender targets integrated and visually reviewed on September 12, 2026.
-The code inventory includes dinosaur, toilet, hot dog, soccer goal, UFO, scoreboard,
-light tower, inflatable baseball, wobbly mascot and pizza truck.
+The code inventory includes dinosaur, toilet, sock, soccer goal, UFO, scoreboard,
+light tower, inflatable baseball, wobbly mascot and ice cream truck.
 
 ## Deliverables
 
@@ -76,7 +76,7 @@ not a benchmark on a physical phone or a GPU timer measurement.
 - The live scoreboard CanvasTexture remains in Three.js; the frame GLB contains
   no baked text or score. Frame flashes and lamp dimming use the existing drivers.
 - Head/jaw motion, UFO bulbs, flush swirl, mascot wobble, inflatable deflation,
-  tether hiding and reset, pizza slices, ducks, paper and splashes remain connected
+  tether hiding and reset, ice cream cones, ducks, paper and splashes remain connected
   to the original reaction loops. New tethers reach the elevated props.
 - Reviewed full desktop/mobile batting, approach and reaction screenshots.
   Corrected the initially buried UFO bulbs and replaced name-based attachment

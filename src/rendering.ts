@@ -92,9 +92,15 @@ export class Rendering {
   zone: THREE.LineSegments;
   aimLine: THREE.Line;
   aimArrow: THREE.Mesh;
-  sun = new THREE.DirectionalLight("#fff0d0", 2.25);
-  ambient = new THREE.HemisphereLight("#d3eeff", "#a0b6a0", 1.8);
-  fill = new THREE.DirectionalLight("#c6e6ff", 0.5);
+  sun = new THREE.DirectionalLight("#fff0d0", 2.65);
+  ambient = new THREE.HemisphereLight("#c9e2ff", "#7e9c8e", 0.95);
+  fill = new THREE.SpotLight("#bee7ff", 18, 22, Math.PI / 7, 0.9, 1);
+  private lowQuality =
+    window.matchMedia("(pointer: coarse)").matches ||
+    (navigator.hardwareConcurrency > 0 && navigator.hardwareConcurrency <= 4);
+  private frameSampleStart = 0;
+  private frameSamples = 0;
+  private slowWindows = 0;
   look = new THREE.Vector3(0, 6, 36);
   desired = new THREE.Vector3();
   desiredLook = new THREE.Vector3();
@@ -106,7 +112,6 @@ export class Rendering {
   boardTexture: THREE.CanvasTexture;
   lastBoard = "";
   reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  renderFrame = 0;
   crowdPeople: CrowdPerson[] = [];
   crowdActors: CrowdActor[] = [];
   crowdBodies!: THREE.InstancedMesh;
@@ -137,7 +142,9 @@ export class Rendering {
       antialias: true,
       powerPreference: "high-performance",
     });
-    this.renderer.setPixelRatio(Math.min(devicePixelRatio, 1.7));
+    this.renderer.setPixelRatio(
+      Math.min(devicePixelRatio, this.lowQuality ? 1.25 : 1.7),
+    );
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -145,25 +152,26 @@ export class Rendering {
     this.renderer.toneMappingExposure = 1.0;
     this.scene.background = new THREE.Color("#a5e1f4");
     this.scene.fog = new THREE.Fog("#bce9ed", 130, 300);
-    this.sun.position.set(-38, 80, -30);
+    // +X is screen-left from the existing behind-home-plate camera.
+    this.sun.position.set(32, 65, -15);
     this.sun.castShadow = true;
-    this.sun.shadow.mapSize.set(2048, 2048);
+    this.sun.shadow.mapSize.setScalar(this.lowQuality ? 512 : 1024);
     Object.assign(this.sun.shadow.camera, {
-      left: -100,
-      right: 100,
-      top: 140,
-      bottom: -50,
+      left: -18,
+      right: 18,
+      top: 26,
+      bottom: -26,
       near: 1,
-      far: 250,
+      far: 110,
     });
-    this.sun.shadow.bias = -0.001;
-    this.sun.shadow.normalBias = 0.055;
-    this.sun.shadow.intensity = 0.68;
-    this.fill.position.set(34, 28, -26);
-    this.fill.target.position.set(0, 8, 65);
+    this.sun.shadow.bias = -0.00015;
+    this.sun.shadow.normalBias = 0.035;
+    this.sun.shadow.intensity = 0.52;
+    this.fill.position.set(-5, 7, 8);
+    this.fill.target.position.set(BATTER_STANCE.x, 1.6, 0);
     this.scene.add(this.sun, this.ambient, this.fill, this.fill.target);
     this.scene.add(this.sun.target);
-    this.sun.target.position.z = 40;
+    this.sun.target.position.z = 10;
     if (assets.field) {
       this.scene.add(assets.field);
       if (assets["home-plate"]) this.scene.add(assets["home-plate"]);
@@ -177,11 +185,29 @@ export class Rendering {
     } else this.stadium();
     this.scenery();
     addContactShadows(this.scene);
+    // Grounding decals carry distant shadows. Only the two players use the
+    // fixed, tightly framed shadow camera, avoiding crowd/target shadow draws.
+    this.scene.traverse((object) => {
+      if (object instanceof THREE.Mesh) object.castShadow = false;
+    });
     this.mergeStaticGeometry();
-    this.renderer.shadowMap.autoUpdate = false;
+    this.renderer.shadowMap.autoUpdate = true;
     this.targets = buildTargets(this.scene);
     upgradeStadiumTargets(this.targets, assets);
-    this.polish = new VisualPolish(this.targets);
+    for (const target of this.targets.values()) {
+      target.group.traverse((object) => {
+        object.castShadow = false;
+        if (!(object instanceof THREE.Mesh)) return;
+        const materials = Array.isArray(object.material)
+          ? object.material
+          : [object.material];
+        for (const material of materials) {
+          if (!(material instanceof THREE.MeshStandardMaterial)) continue;
+          if (material.name.endsWith("_vinyl")) material.roughness = 0.48;
+          if (material.name.endsWith("_ceramic")) material.roughness = 0.32;
+        }
+      });
+    }
     this.batter = character(this.scene);
     this.batter.group.position.set(
       BATTER_STANCE.x,
@@ -194,6 +220,28 @@ export class Rendering {
     this.pitcher = character(this.scene, true);
     this.pitcher.group.position.set(0, 0.22, 18);
     this.pitcher.group.scale.setScalar(1.12);
+    for (const player of [this.batter, this.pitcher]) {
+      const finishes = new Map<THREE.Material, THREE.Material>();
+      player.group.traverse((object) => {
+        if (!(object instanceof THREE.Mesh)) return;
+        object.castShadow = true;
+        object.receiveShadow = true;
+        const finish = (material: THREE.Material) => {
+          if (!(material instanceof THREE.MeshStandardMaterial))
+            return material;
+          if (!finishes.has(material)) {
+            const copy = material.clone();
+            copy.roughness = THREE.MathUtils.clamp(copy.roughness, 0.52, 0.82);
+            copy.metalness = Math.min(copy.metalness, 0.12);
+            finishes.set(material, copy);
+          }
+          return finishes.get(material)!;
+        };
+        object.material = Array.isArray(object.material)
+          ? object.material.map(finish)
+          : finish(object.material);
+      });
+    }
     this.ball = new THREE.Group();
     const baseball = sphere(this.ball, "#fffdf2", 0, 0, 0, 0.3);
     baseball.material = baseball.material.clone();
@@ -230,6 +278,9 @@ export class Rendering {
     }
     this.scene.add(this.ball);
     this.ball.visible = false;
+    this.ball.traverse((object) => {
+      object.castShadow = false;
+    });
     const glow = document.createElement("canvas");
     glow.width = 128;
     glow.height = 128;
@@ -336,6 +387,12 @@ export class Rendering {
     this.targets.get("scoreboard")!.moving.add(board);
     this.updateBoard("WELCOME, SLUGGER!", 0);
     this.effects = new Effects(this.scene);
+    this.polish = new VisualPolish(this.targets, this.scene, canvas, [
+      this.batter.group,
+      this.pitcher.group,
+      this.ball,
+      this.zone,
+    ]);
     this.camera.position.set(5, 7.8, -14);
     this.camera.lookAt(this.look);
     this.resize();
@@ -362,6 +419,30 @@ export class Rendering {
     // An off-axis frame keeps the camera and all ball-follow transforms intact.
     this.camera.setViewOffset(w, h, 0, -Math.max(0, 850 - h) * 0.42, w, h);
     this.camera.updateProjectionMatrix();
+  }
+  private adaptShadowQuality() {
+    if (this.lowQuality) return;
+    const now = performance.now();
+    if (!this.frameSampleStart || document.hidden) {
+      this.frameSampleStart = now;
+      this.frameSamples = 0;
+      return;
+    }
+    this.frameSamples++;
+    const duration = now - this.frameSampleStart;
+    if (duration < 2000) return;
+    this.slowWindows =
+      duration / this.frameSamples > 28 ? this.slowWindows + 1 : 0;
+    this.frameSampleStart = now;
+    this.frameSamples = 0;
+    if (this.slowWindows < 3) return;
+    // A single downgrade after sustained slow frames; never resize every frame.
+    this.lowQuality = true;
+    this.sun.shadow.mapSize.setScalar(512);
+    this.sun.shadow.map?.dispose();
+    this.sun.shadow.map = null;
+    this.renderer.setPixelRatio(Math.min(devicePixelRatio, 1.25));
+    this.resize();
   }
   mergeStaticGeometry() {
     this.scene.updateMatrixWorld(true);
@@ -591,7 +672,7 @@ export class Rendering {
     ) => {
       const mesh = new THREE.InstancedMesh(
         geometry,
-        new THREE.MeshBasicMaterial({
+        new THREE.MeshLambertMaterial({
           color,
           vertexColors: true,
         }),
@@ -706,7 +787,7 @@ export class Rendering {
     const actorPart = (geometry: THREE.BufferGeometry, color: string) => {
       const mesh = new THREE.Mesh(
         geometry,
-        new THREE.MeshBasicMaterial({ color }),
+        new THREE.MeshLambertMaterial({ color }),
       );
       mesh.castShadow = false;
       mesh.receiveShadow = false;
@@ -1884,11 +1965,11 @@ export class Rendering {
           surface.material.emissiveIntensity = 1.2;
         }
       if (id === "scoreboard") t.surfaces[0].material.emissiveIntensity = 0;
-      if (id === "toilet" || id === "pizza")
+      if (id === "toilet" || id === "icecream")
         t.extras.forEach((e) => {
           e.visible = false;
         });
-      if (round && ["baseball", "hotdog"].includes(id))
+      if (round && ["baseball", "sock"].includes(id))
         t.extras.forEach((e) => {
           e.visible = true;
         });
@@ -1945,7 +2026,7 @@ export class Rendering {
           t.extras[0].position.y =
             -2 + (r ? Math.sin(time * 13) * 0.65 : Math.sin(time * 1.4) * 0.2);
         }
-        if (id === "pizza")
+        if (id === "icecream")
           t.extras.forEach((e, i) => {
             e.visible = r > 0;
             if (r) {
@@ -2002,7 +2083,7 @@ export class Rendering {
             1,
           );
         }
-        if (t.damaged && (id === "baseball" || id === "hotdog")) {
+        if (t.damaged && (id === "baseball" || id === "sock")) {
           const progress = Math.min(1, age / (id === "baseball" ? 0.55 : 1.6));
           const sizeY = 1 - progress * 0.94;
           t.moving.scale.set(1 + progress * 0.15, sizeY, 1 + progress * 0.1);
@@ -2100,13 +2181,15 @@ export class Rendering {
       opts.golden,
       opts.flight && opts.perfect,
     );
-    if (this.renderFrame++ % 6 === 0)
-      this.renderer.shadowMap.needsUpdate = true;
+    this.adaptShadowQuality();
     this.polish.update(
       opts.paused ? 0 : dt,
       this.camera,
       opts.menu,
       opts.reactionTarget,
+      opts.aim,
+      opts.flight,
+      opts.paused,
     );
     this.renderer.render(this.scene, this.camera);
   }

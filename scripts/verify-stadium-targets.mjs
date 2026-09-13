@@ -4,17 +4,17 @@ const stage = process.argv[2] || "after";
 const base = process.env.TARGET_URL || "http://127.0.0.1:5173";
 const out = `artifacts/targets/${stage}`;
 await mkdir(out, { recursive: true });
-const ids = [
+const ids = process.argv.length > 3 ? process.argv.slice(3) : [
   "dinosaur",
   "toilet",
-  "hotdog",
+  "sock",
   "goal",
   "ufo",
   "scoreboard",
   "lights",
   "baseball",
   "mascot",
-  "pizza",
+  "icecream",
 ];
 const browser = await chromium.launch({
   args: ["--use-angle=d3d11", "--enable-webgl", "--ignore-gpu-blocklist"],

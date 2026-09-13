@@ -1,6 +1,6 @@
 # Kyle’s Home Run Chaos
 
-A complete, original 3D arcade home run derby for a kid and a parent. Swing at automatic pitches, chase a home run streak, and hit a hungry dinosaur, soccer goal, UFO, pizza truck, or giant flushing toilet. Smash the scoreboard, knock out a light tower, and pop or wobble oversized inflatable toys.
+A complete, original 3D arcade home run derby for a kid and a parent. Swing at automatic pitches, chase a home run streak, and hit a hungry dinosaur, soccer goal, UFO, ice cream truck, or giant flushing toilet. Smash the scoreboard, knock out a light tower, and pop or wobble oversized inflatable toys.
 
 ## Play locally
 
@@ -52,13 +52,13 @@ The in-game HUD shows only score, home runs, active multiplier, personal best, a
 - Home run: **1,000 bonus points**, then distance points.
 - Consecutive home runs: **1×, 1.5×, 2×, 2.5×, 3×**. A miss or non-home-run resets the streak.
 - Soccer goal: **triple the entire hit**.
-- Pizza truck **+2,000**, UFO **+3,000**, dinosaur mouth **+4,000**, toilet **+5,000**.
-- Scoreboard **+4,000**, light tower **+1,500**, inflatable baseball **+1,500**, wobbly mascot **+2,000**, inflatable hot dog **+2,500**.
+- Ice cream truck **+2,000**, UFO **+3,000**, dinosaur mouth **+4,000**, toilet **+5,000**.
+- Scoreboard **+4,000**, light tower **+1,500**, inflatable baseball **+1,500**, wobbly mascot **+2,000**, inflatable sock **+2,500**.
 - Golden balls: **double the entire hit**, including target and streak bonuses.
 
 Each outcome appears as one large, brief message. The results screen’s Round details disclosure preserves every pitch’s score calculation, longest home runs, and best streaks. All targets use Rapier collision events; home runs must cross the fair outfield fence above its top.
 
-Stadium target reactions follow the ball for **2.1 seconds**, then show the scored result briefly before the next pitch. Scoreboard numbers count up during a bright electronic celebration. The light bank flickers, then stays dim until the next pitch. The toilet's open bowl and water surface trigger **FLUSHED IT! +5,000**: the ball swirls on the water and shrinks down the drain. The mascot wobbles, the baseball pops flat, and the hot dog slowly deflates. Popped/deflated toys remain visibly changed and inactive until the next round, with a "BACK NEXT ROUND" sign. Other temporary effects reset before the next pitch, and pause freezes the reaction.
+Stadium target reactions follow the ball for **2.1 seconds**, then show the scored result briefly before the next pitch. Scoreboard numbers count up during a bright electronic celebration. The light bank flickers, then stays dim until the next pitch. The toilet's open bowl and water surface trigger **FLUSHED IT! +5,000**: the ball swirls on the water and shrinks down the drain. The mascot wobbles, the baseball pops flat, and the sock slowly deflates. Popped/deflated toys remain visibly changed and inactive until the next round, with a "BACK NEXT ROUND" sign. Other temporary effects reset before the next pitch, and pause freezes the reaction.
 
 All new target surfaces use the same geometry for rendering and collision. A swept baseball catches thin surfaces between physics steps; empty corners and the space above the toilet do not score. Each ball can claim its target bonus only once. Target bonuses use the existing distance, streak, goal, and golden-ball scoring formulas. The new scoreboard and toilet are placed within normal swing range; the forgiving contact windows, pitch speed, and ball-flight physics remain unchanged.
 
@@ -112,7 +112,7 @@ game.getState();
 game.startRound("solo"); // or 'versus'
 game.predictablePitch();
 game.triggerContact("Perfect"); // Too early, Early, Good, Perfect, Late, Miss
-game.launchAtTarget("goal"); // also dinosaur, ufo, pizza, toilet, scoreboard, lights, baseball, mascot, hotdog
+game.launchAtTarget("goal"); // also dinosaur, ufo, icecream, toilet, scoreboard, lights, baseball, mascot, sock
 game.testSwing(-90); // deterministic timing offset in milliseconds; negative = early
 game.setTimingDebug(false); // hide the temporary timing readout without reloading
 game.getFraming(); // projected size ratios against the previous batting camera

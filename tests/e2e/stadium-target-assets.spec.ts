@@ -109,7 +109,9 @@ test("corrupt and missing target assets fall back independently and still score"
   );
   await page.goto("/");
   await page.waitForFunction(() => !!window.__HOME_RUN_CHAOS__);
-  await page.clock.pauseAt(new Date(Date.now() + 100));
+  // Use the browser's installed clock; the runner clock can lag during startup.
+  const now = await page.evaluate(() => Date.now());
+  await page.clock.pauseAt(new Date(now + 1000));
   const visual = await page.evaluate(() =>
     window.__HOME_RUN_CHAOS__.getVisualState(),
   );

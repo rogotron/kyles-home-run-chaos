@@ -20,7 +20,7 @@ try {
   await page.screenshot({ path: ".local/targets/stadium-batting.png" });
   const inspectionIds = process.argv.includes("--overview-only")
     ? []
-    : ["scoreboard", "lights", "toilet", "baseball", "mascot", "hotdog"];
+    : ["scoreboard", "lights", "toilet", "baseball", "mascot", "sock"];
   for (const id of inspectionIds) {
     await page.evaluate(
       (id) => window.__HOME_RUN_CHAOS__.launchAtTarget(id),

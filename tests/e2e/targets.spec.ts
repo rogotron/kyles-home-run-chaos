@@ -7,7 +7,8 @@ const ids: TargetId[] = [
   "toilet",
   "baseball",
   "mascot",
-  "hotdog",
+  "sock",
+  "icecream",
 ];
 test.beforeEach(async ({ page }) => {
   await page.clock.install();
@@ -130,7 +131,7 @@ for (const [id, error, aim] of [
   ["toilet", 0, 0.256],
   ["baseball", 0, -0.9967],
   ["mascot", 0, 0.7882],
-  ["hotdog", 0, -0.127],
+  ["sock", 0, -0.127],
   ["ufo", 0, 0.17],
 ] as const) {
   test(`perfect keyboard swing assists a collision with ${id}`, async ({

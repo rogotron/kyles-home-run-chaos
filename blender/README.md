@@ -28,7 +28,7 @@ Semantic `targetRole` extras survive GLTFLoader's name sanitization.
 | Tether | Anchored cord; original deflation/reset visibility behavior |
 
 The existing moving pivots supply Y=24 for the inflatable baseball, Y=14 for
-hot dog and mascot, Y=25 for the scoreboard and Y=27 for the light tower.
+sock and mascot, Y=25 for the scoreboard and Y=27 for the light tower.
 The flush swirl attaches at `(0,6.6,-1)`; UFO motion remains on its original
 parent. The Blender gallery shows these assembled offsets, but resets them
 before exporting to avoid applying the offsets twice in Three.js.
@@ -36,13 +36,13 @@ before exporting to avoid applying the offsets twice in Three.js.
 `src/visual-assets.ts` validates roles before hiding any original render mesh.
 Each missing, corrupt or incompatible file leaves its procedural fallback
 visible independently. The old surface objects remain available and invisible;
-Rapier retains all of its original target shapes. Nothing in the GLBs drives
+Rapier uses the shared shapes in src/target-shapes.ts, including the new sock leg, foot, and cuff. Nothing in the GLBs drives
 physics, scoring, camera movement, labels or game state.
 
 The imported scoreboard frame shares its material with the original reaction
 driver. The existing CanvasTexture score display is still created and updated
 by `src/rendering.ts`. Imported light lenses similarly receive the original
-flicker/dim/reset material updates. Pizza slices, ducks, paper, splashes and
+flicker/dim/reset material updates. Ice cream cones, ducks, paper, splashes and
 the UFO's translucent beam remain the existing effects.
 
 ## Rendering decisions

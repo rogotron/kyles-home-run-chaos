@@ -77,7 +77,7 @@ describe("real Rapier trajectories", () => {
       // Measured legal batting profiles, using the actual pitch position and
       // timing classification, with all other targets/walls left in the world.
       const profiles: Record<string, [number, number, number]> = {
-        pizza: [0.25, 1.4, -0.6493],
+        icecream: [0.25, 1.4, -0.6493],
         goal: [-0.25, 1.4, -0.7399],
         ufo: [0, 1.4, 0],
         dinosaur: [-0.25, 1.65, 0.3489],
@@ -86,7 +86,7 @@ describe("real Rapier trajectories", () => {
         lights: [0, 1.4, 0.7042],
         baseball: [0, 1.4, -0.9967],
         mascot: [0, 1.4, 0.7882],
-        hotdog: [-0.25, 1.65, -0.3631],
+        sock: [-0.25, 1.65, -0.3631],
       };
       const [error, y, aim] = profiles[target.id];
       const pitching = new Pitching();

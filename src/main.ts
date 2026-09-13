@@ -643,7 +643,7 @@ export class Game {
               let triangles = 0,
                 primitives = 0;
               const subject = new Set<THREE.Object3D>();
-              (["ufo", "baseball", "mascot", "hotdog", "scoreboard"].includes(
+              (["ufo", "baseball", "mascot", "sock", "scoreboard"].includes(
                 id,
               )
                 ? target.moving

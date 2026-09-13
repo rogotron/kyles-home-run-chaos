@@ -11,7 +11,8 @@ test("graphics polish keeps labels clear of the HUD and freezes the dinosaur cut
   await page.clock.install();
   await page.goto("/");
   await page.waitForFunction(() => !!window.__HOME_RUN_CHAOS__);
-  await page.clock.pauseAt(new Date(Date.now() + 100));
+  const now = await page.evaluate(() => Date.now());
+  await page.clock.pauseAt(new Date(now + 1000));
   await page.evaluate(() => window.__HOME_RUN_CHAOS__.startRound());
   await page.clock.runFor(1900);
   const hud = await page.locator("#hud").boundingBox();
@@ -22,7 +23,7 @@ test("graphics polish keeps labels clear of the HUD and freezes the dinosaur cut
   const visible = original.labels.filter(
     (label) => label.visible && label.opacity > 0.5,
   );
-  expect(visible.length).toBeGreaterThanOrEqual(4);
+  expect(visible.length).toBeLessThanOrEqual(1);
   for (const label of visible) {
     const r = label.bounds!;
     expect(

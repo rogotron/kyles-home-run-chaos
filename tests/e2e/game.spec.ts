@@ -122,7 +122,7 @@ for (const target of [
   "goal",
   "dinosaur",
   "ufo",
-  "pizza",
+  "icecream",
   "toilet",
 ] as TargetId[]) {
   test(`Rapier collision registers the ${target} target`, async ({ page }) => {

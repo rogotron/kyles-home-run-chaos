@@ -1,0 +1,3442 @@
+{
+  "desktop": {
+    "perf": {
+      "gpu": "ANGLE (AMD, AMD Radeon(TM) 880M Graphics (0x0000150E) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "frames": 180,
+      "meanMs": 18.98111111111111,
+      "p95Ms": 33.399999999999864
+    },
+    "visual": {
+      "loaded": [
+        "field",
+        "stadium",
+        "batter",
+        "bat",
+        "baseball",
+        "home-plate",
+        "target-icecream",
+        "target-goal",
+        "target-ufo",
+        "target-dinosaur",
+        "target-toilet",
+        "target-scoreboard",
+        "target-lights",
+        "target-baseball",
+        "target-mascot",
+        "target-sock"
+      ],
+      "drawCalls": 1111,
+      "triangles": 266337,
+      "geometries": 172,
+      "textures": 10,
+      "targetAssets": {
+        "icecream": {
+          "integrated": true,
+          "triangles": 13416,
+          "primitives": 4,
+          "bounds": {
+            "left": 1026.7590150190551,
+            "top": 332.37761323132275,
+            "right": 1173.7091440052052,
+            "bottom": 433.27317599612286
+          },
+          "position": [
+            -57,
+            0,
+            84
+          ],
+          "moving": [
+            -57,
+            0,
+            84
+          ],
+          "proxiesHidden": true
+        },
+        "goal": {
+          "integrated": true,
+          "triangles": 1552,
+          "primitives": 3,
+          "bounds": {
+            "left": 808.7225484837871,
+            "top": 327.2928029358701,
+            "right": 969.2590592356835,
+            "bottom": 433.97627433632755
+          },
+          "position": [
+            -29,
+            0,
+            83
+          ],
+          "moving": [
+            -29,
+            0,
+            83
+          ],
+          "proxiesHidden": true
+        },
+        "ufo": {
+          "integrated": true,
+          "triangles": 7256,
+          "primitives": 16,
+          "bounds": {
+            "left": 532.415448978321,
+            "top": 221.99615965536248,
+            "right": 642.9047044148991,
+            "bottom": 270.84583654694364
+          },
+          "position": [
+            12.929385930140542,
+            24.793805999486835,
+            91
+          ],
+          "moving": [
+            0,
+            0,
+            0
+          ],
+          "proxiesHidden": true
+        },
+        "dinosaur": {
+          "integrated": true,
+          "triangles": 14440,
+          "primitives": 3,
+          "bounds": {
+            "left": 325.13793960587907,
+            "top": 264.500088687804,
+            "right": 477.45448089388776,
+            "bottom": 437.21454198941154
+          },
+          "position": [
+            34,
+            0,
+            83
+          ],
+          "moving": [
+            0,
+            16,
+            0
+          ],
+          "proxiesHidden": true
+        },
+        "toilet": {
+          "integrated": true,
+          "triangles": 5076,
+          "primitives": 4,
+          "bounds": {
+            "left": 525.5172054720856,
+            "top": 347.07577017935614,
+            "right": 599.307679414249,
+            "bottom": 430.5760475456457
+          },
+          "position": [
+            17,
+            0,
+            98
+          ],
+          "moving": [
+            0,
+            6.6,
+            -1
+          ],
+          "proxiesHidden": true
+        },
+        "scoreboard": {
+          "integrated": true,
+          "triangles": 6162,
+          "primitives": 4,
+          "bounds": {
+            "left": 865.8385252277201,
+            "top": 225.9913646760495,
+            "right": 1031.4191930879174,
+            "bottom": 318.7994629136594
+          },
+          "position": [
+            -47,
+            0,
+            110
+          ],
+          "moving": [
+            0,
+            25,
+            0
+          ],
+          "proxiesHidden": true
+        },
+        "lights": {
+          "integrated": true,
+          "triangles": 9384,
+          "primitives": 2,
+          "bounds": {
+            "left": 286.46782465495903,
+            "top": 207.37890691401086,
+            "right": 395.5245505637891,
+            "bottom": 433.23565779694667
+          },
+          "position": [
+            46,
+            0,
+            90
+          ],
+          "moving": [
+            0,
+            27,
+            0
+          ],
+          "proxiesHidden": true
+        },
+        "baseball": {
+          "integrated": true,
+          "triangles": 6100,
+          "primitives": 3,
+          "bounds": {
+            "left": 1055.2868231036985,
+            "top": 166.19916650668273,
+            "right": 1222.8536151386993,
+            "bottom": 294.1757042324693
+          },
+          "position": [
+            -52,
+            0,
+            66
+          ],
+          "moving": [
+            0,
+            24,
+            0
+          ],
+          "proxiesHidden": true
+        },
+        "mascot": {
+          "integrated": true,
+          "triangles": 7176,
+          "primitives": 3,
+          "bounds": {
+            "left": 214.0474479943916,
+            "top": 265.0827636413908,
+            "right": 351.65553308262565,
+            "bottom": 389.04570177108155
+          },
+          "position": [
+            55,
+            0,
+            94
+          ],
+          "moving": [
+            0,
+            14,
+            0
+          ],
+          "proxiesHidden": true
+        },
+        "sock": {
+          "integrated": true,
+          "triangles": 7366,
+          "primitives": 3,
+          "bounds": {
+            "left": 695.8173557290248,
+            "top": 273.42235280572686,
+            "right": 792.2106208687075,
+            "bottom": 374.0714382071392
+          },
+          "position": [
+            -7,
+            0,
+            82
+          ],
+          "moving": [
+            0,
+            14,
+            0
+          ],
+          "proxiesHidden": true
+        }
+      },
+      "batter": "blender-batter",
+      "hand": [
+        -1.35,
+        1.2096,
+        0.6047999853134156
+      ],
+      "handle": [
+        -1.35,
+        1.2656,
+        0.6271999853134156
+      ],
+      "dinoHead": [
+        0,
+        16,
+        0
+      ],
+      "dinoJaw": [
+        0,
+        -1.8471241588247107,
+        -0.30000001192092896
+      ],
+      "ballColor": "fffdf2",
+      "composition": {
+        "mascotOpacity": 1,
+        "focused": "sock",
+        "obstacles": [
+          {
+            "left": 1026.1666196681765,
+            "right": 1175.6125477775443,
+            "top": 332.37761323132275,
+            "bottom": 433.27317599612286
+          },
+          {
+            "left": 808.7128643372653,
+            "right": 969.2590592356835,
+            "top": 327.2928029358701,
+            "bottom": 434.2622410486303
+          },
+          {
+            "left": 520.7399342960114,
+            "right": 643.6178377133821,
+            "top": 220.58233419454103,
+            "bottom": 272.38204951090773
+          },
+          {
+            "left": 316.61568626317717,
+            "right": 477.45448089388776,
+            "top": 262.84020187183364,
+            "bottom": 438.3683032105455
+          },
+          {
+            "left": 525.5172054720856,
+            "right": 599.307679414249,
+            "top": 347.07577017935614,
+            "bottom": 430.5760475456457
+          },
+          {
+            "left": 865.8385252277201,
+            "right": 1031.4191930879174,
+            "top": 225.9913646760495,
+            "bottom": 318.7994629136594
+          },
+          {
+            "left": 286.46782465495903,
+            "right": 395.5245505637891,
+            "top": 207.37890691401086,
+            "bottom": 433.23565779694667
+          },
+          {
+            "left": 1055.2868231036985,
+            "right": 1222.8536151386993,
+            "top": 166.19916650668273,
+            "bottom": 294.1757042324693
+          },
+          {
+            "left": 214.0474479943916,
+            "right": 351.65553308262565,
+            "top": 265.0827636413908,
+            "bottom": 389.04570177108155
+          },
+          {
+            "left": 695.8173557290248,
+            "right": 792.2106208687075,
+            "top": 273.42235280572686,
+            "bottom": 374.0714382071392
+          },
+          {
+            "left": 797.984752849429,
+            "right": 867.5024470618866,
+            "top": 520.8366375069064,
+            "bottom": 638.1246179574295
+          },
+          {
+            "left": 714.3893023335793,
+            "right": 748.5948469220061,
+            "top": 460.4260509106704,
+            "bottom": 516.02648133016
+          },
+          {
+            "left": 759.2791698568361,
+            "right": 789.676853706819,
+            "top": 499.1799575093999,
+            "bottom": 533.1198057987623
+          },
+          {
+            "left": 762.7976066106221,
+            "right": 811.3918388712634,
+            "top": 541.834736815569,
+            "bottom": 581.4275998717561
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 90,
+            "top": 0,
+            "right": 1440,
+            "bottom": 90,
+            "left": 0
+          },
+          {
+            "x": 36,
+            "y": 92,
+            "width": 780,
+            "height": 72,
+            "top": 92,
+            "right": 816,
+            "bottom": 164,
+            "left": 36
+          }
+        ],
+        "labels": [
+          {
+            "id": "icecream",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 1017.6846576725085,
+              "right": 1184.0945097732124,
+              "top": 294.6426378812054,
+              "bottom": 322.37761323132275
+            }
+          },
+          {
+            "id": "goal",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 805.4150334773739,
+              "right": 972.5568900955749,
+              "top": 289.4358268328366,
+              "bottom": 317.2928029358701
+            }
+          },
+          {
+            "id": "ufo",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 498.89063461234196,
+              "right": 665.4671373970516,
+              "top": 182.81958373042278,
+              "bottom": 210.58233419454103
+            }
+          },
+          {
+            "id": "dinosaur",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 310.8175293480267,
+              "right": 483.2526378090382,
+              "top": 224.10101712833173,
+              "bottom": 252.84020187183364
+            }
+          },
+          {
+            "id": "toilet",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 481.77075402418393,
+              "right": 643.0541308621506,
+              "top": 310.1952073730284,
+              "bottom": 337.07577017935614
+            }
+          },
+          {
+            "id": "scoreboard",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 873.1216394838281,
+              "right": 1024.1360788318093,
+              "top": 190.82229145138595,
+              "bottom": 215.9913646760495
+            }
+          },
+          {
+            "id": "lights",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 256.08705629290023,
+              "right": 425.90531892584784,
+              "top": 169.07586314185292,
+              "bottom": 197.37890691401086
+            }
+          },
+          {
+            "id": "baseball",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 1047.239312152843,
+              "right": 1230.901126089555,
+              "top": 125.58886418389744,
+              "bottom": 156.19916650668273
+            }
+          },
+          {
+            "id": "baseball",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 1047.239312152843,
+              "right": 1230.901126089555,
+              "top": 125.58886418389744,
+              "bottom": 156.19916650668273
+            }
+          },
+          {
+            "id": "mascot",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 82.29058772625356,
+              "right": 249.4246734031328,
+              "top": 227.22708269524423,
+              "bottom": 255.08276364139078
+            }
+          },
+          {
+            "id": "sock",
+            "visible": true,
+            "opacity": 0.9597506922580565,
+            "bounds": {
+              "left": 658.1478956406607,
+              "right": 829.8800809570715,
+              "top": 234.8003219196584,
+              "bottom": 263.42235280572686
+            }
+          },
+          {
+            "id": "sock",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 658.1478956406607,
+              "right": 829.8800809570715,
+              "top": 234.8003219196584,
+              "bottom": 263.42235280572686
+            }
+          }
+        ]
+      },
+      "layout": {
+        "poles": [
+          [
+            [
+              1205.7745973961903,
+              452.274078283272
+            ],
+            [
+              1219.545754597282,
+              205.23235291169496
+            ]
+          ],
+          [
+            [
+              115.63926891529118,
+              461.6333634329378
+            ],
+            [
+              96.16395512234499,
+              181.1182818784176
+            ]
+          ]
+        ],
+        "crowdMinimumRadius": 121.78395279385332
+      }
+    },
+    "hits": {
+      "sock": {
+        "hit": "sock",
+        "reacting": true,
+        "score": 4815,
+        "hits": 1,
+        "camera": [
+          4.581845368690175,
+          24.23720104687178,
+          47.82605253238829
+        ],
+        "preview": {
+          "integrated": true,
+          "triangles": 7366,
+          "primitives": 3,
+          "bounds": {
+            "left": 627.470361866821,
+            "top": 457.8398622903514,
+            "right": 776.634150207087,
+            "bottom": 616.8168491153082
+          },
+          "position": [
+            -7,
+            0,
+            82
+          ],
+          "moving": [
+            0,
+            14,
+            0
+          ],
+          "proxiesHidden": true
+        },
+        "render": {
+          "loaded": [
+            "field",
+            "stadium",
+            "batter",
+            "bat",
+            "baseball",
+            "home-plate",
+            "target-icecream",
+            "target-goal",
+            "target-ufo",
+            "target-dinosaur",
+            "target-toilet",
+            "target-scoreboard",
+            "target-lights",
+            "target-baseball",
+            "target-mascot",
+            "target-sock"
+          ],
+          "drawCalls": 807,
+          "triangles": 229657,
+          "geometries": 179,
+          "textures": 10,
+          "targetAssets": {
+            "icecream": {
+              "integrated": true,
+              "triangles": 13416,
+              "primitives": 4,
+              "bounds": {
+                "left": 1113.9974604759925,
+                "top": 389.9834220887392,
+                "right": 1357.1492898475396,
+                "bottom": 566.2909385509051
+              },
+              "position": [
+                -57,
+                0,
+                84
+              ],
+              "moving": [
+                -57,
+                0,
+                84
+              ],
+              "proxiesHidden": true
+            },
+            "goal": {
+              "integrated": true,
+              "triangles": 1552,
+              "primitives": 3,
+              "bounds": {
+                "left": 827.1519109328495,
+                "top": 397.97204948786504,
+                "right": 1100.5459073906998,
+                "bottom": 610.0344245155167
+              },
+              "position": [
+                -29,
+                0,
+                83
+              ],
+              "moving": [
+                -29,
+                0,
+                83
+              ],
+              "proxiesHidden": true
+            },
+            "ufo": {
+              "integrated": true,
+              "triangles": 7256,
+              "primitives": 16,
+              "bounds": {
+                "left": 221.83629702832104,
+                "top": 165.05121630809842,
+                "right": 541.1463123313403,
+                "bottom": 281.8940302531645
+              },
+              "position": [
+                11.73481330407872,
+                26.02645225522452,
+                91
+              ],
+              "moving": [
+                0,
+                0,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "dinosaur": {
+              "integrated": true,
+              "triangles": 14440,
+              "primitives": 3,
+              "bounds": {
+                "left": -711.3296350136302,
+                "top": 347.20934430772735,
+                "right": 174.3916359681704,
+                "bottom": 891.3037941070131
+              },
+              "position": [
+                34,
+                0,
+                83
+              ],
+              "moving": [
+                0,
+                16,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "toilet": {
+              "integrated": true,
+              "triangles": 5076,
+              "primitives": 4,
+              "bounds": {
+                "left": 258.52743468377446,
+                "top": 430.2388717451731,
+                "right": 455.684168457196,
+                "bottom": 639.4622225329357
+              },
+              "position": [
+                17,
+                0,
+                98
+              ],
+              "moving": [
+                0,
+                6.6,
+                -1
+              ],
+              "proxiesHidden": true
+            },
+            "scoreboard": {
+              "integrated": true,
+              "triangles": 6162,
+              "primitives": 4,
+              "bounds": {
+                "left": 850.988287531169,
+                "top": 200.3656118186236,
+                "right": 1066.4421433482944,
+                "bottom": 338.76482003388963
+              },
+              "position": [
+                -47,
+                0,
+                110
+              ],
+              "moving": [
+                0,
+                25,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "lights": {
+              "integrated": true,
+              "triangles": 9384,
+              "primitives": 2,
+              "bounds": {
+                "left": -871.1387806335537,
+                "top": 117.29698044045666,
+                "right": -57.46647092699226,
+                "bottom": 783.2354633792656
+              },
+              "position": [
+                46,
+                0,
+                90
+              ],
+              "moving": [
+                0,
+                27,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "baseball": {
+              "integrated": true,
+              "triangles": 6100,
+              "primitives": 3,
+              "bounds": {
+                "left": 1325.6685496570906,
+                "top": 142.01744420753684,
+                "right": 1863.8964588171036,
+                "bottom": 420.1101327233249
+              },
+              "position": [
+                -52,
+                0,
+                66
+              ],
+              "moving": [
+                0,
+                24,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "mascot": {
+              "integrated": true,
+              "triangles": 7176,
+              "primitives": 3,
+              "bounds": {
+                "left": -1158.7344551234514,
+                "top": 315.6473519353565,
+                "right": -173.79178975864394,
+                "bottom": 717.467596227354
+              },
+              "position": [
+                55,
+                0,
+                94
+              ],
+              "moving": [
+                0,
+                14,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "sock": {
+              "integrated": true,
+              "triangles": 7338,
+              "primitives": 2,
+              "bounds": {
+                "left": 636.1701547570717,
+                "top": 415.91969065971523,
+                "right": 852.2407037691187,
+                "bottom": 598.1376609202626
+              },
+              "position": [
+                -7,
+                0,
+                82
+              ],
+              "moving": [
+                0,
+                10.142999999999995,
+                0
+              ],
+              "proxiesHidden": true
+            }
+          },
+          "batter": "blender-batter",
+          "hand": [
+            -1.35,
+            1.2096,
+            0.6047999853134156
+          ],
+          "handle": [
+            -1.35,
+            1.2656,
+            0.6271999853134156
+          ],
+          "dinoHead": [
+            0,
+            16,
+            0
+          ],
+          "dinoJaw": [
+            0,
+            -2.1446463637434827,
+            -0.30000001192092896
+          ],
+          "ballColor": "fffdf2",
+          "composition": {
+            "mascotOpacity": 1,
+            "focused": null,
+            "obstacles": [
+              {
+                "left": 1112.358027977723,
+                "right": 1359.0182528913135,
+                "top": 389.55095945649913,
+                "bottom": 566.2909385509051
+              },
+              {
+                "left": 827.0722524598916,
+                "right": 1100.5459073906998,
+                "top": 397.97204948786504,
+                "bottom": 611.6108584742392
+              },
+              {
+                "left": 124.54464492769597,
+                "right": 549.76817094348,
+                "top": 156.53103608210873,
+                "bottom": 281.9511702945827
+              },
+              {
+                "left": -947.3862817902268,
+                "right": 174.3916359681704,
+                "top": 336.21907784189074,
+                "bottom": 940.7163379538265
+              },
+              {
+                "left": 258.52743468377446,
+                "right": 455.684168457196,
+                "top": 430.2388717451731,
+                "bottom": 639.4622225329357
+              },
+              {
+                "left": 850.988287531169,
+                "right": 1066.4421433482944,
+                "top": 200.3656118186236,
+                "bottom": 338.76482003388963
+              },
+              {
+                "left": -871.1387806335537,
+                "right": -57.46647092699226,
+                "top": 117.29698044045666,
+                "bottom": 783.2354633792656
+              },
+              {
+                "left": 1325.6685496570906,
+                "right": 1863.8964588171036,
+                "top": 142.01744420753684,
+                "bottom": 420.1101327233249
+              },
+              {
+                "left": -1158.7344551234514,
+                "right": -173.79178975864394,
+                "top": 315.6473519353565,
+                "bottom": 717.467596227354
+              },
+              {
+                "left": 636.1701547570717,
+                "right": 852.2407037691187,
+                "top": 415.91969065971523,
+                "bottom": 598.1376609202626
+              },
+              {
+                "left": 718.0946800245439,
+                "right": 738.5915421362678,
+                "top": 427.15987930884745,
+                "bottom": 451.9610299435108
+              },
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 90,
+                "top": 0,
+                "right": 1440,
+                "bottom": 90,
+                "left": 0
+              },
+              {
+                "x": 36,
+                "y": 92,
+                "width": 780,
+                "height": 72,
+                "top": 92,
+                "right": 816,
+                "bottom": 164,
+                "left": 36
+              },
+              {
+                "x": 43.203125,
+                "y": 225,
+                "width": 1353.59375,
+                "height": 69.53125,
+                "top": 225,
+                "right": 1396.796875,
+                "bottom": 294.53125,
+                "left": 43.203125
+              }
+            ],
+            "labels": [
+              {
+                "id": "icecream",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 1082.808140434518,
+                  "right": 1278.808140434518,
+                  "top": 346.88429278983244,
+                  "bottom": 379.55095945649913
+                }
+              },
+              {
+                "id": "goal",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 865.8090799252957,
+                  "right": 1061.8090799252957,
+                  "top": 355.30538282119835,
+                  "bottom": 387.97204948786504
+                }
+              },
+              {
+                "id": "ufo",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 239.15640793558794,
+                  "right": 435.15640793558794,
+                  "top": 113.86436941544207,
+                  "bottom": 146.53103608210873
+                }
+              },
+              {
+                "id": "dinosaur",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -484.4973229110282,
+                  "right": -288.4973229110282,
+                  "top": 293.55241117522405,
+                  "bottom": 326.21907784189074
+                }
+              },
+              {
+                "id": "toilet",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 259.10580157048526,
+                  "right": 455.10580157048526,
+                  "top": 387.57220507850644,
+                  "bottom": 420.2388717451731
+                }
+              },
+              {
+                "id": "scoreboard",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 860.7152154397318,
+                  "right": 1056.7152154397318,
+                  "top": 157.69894515195693,
+                  "bottom": 190.3656118186236
+                }
+              },
+              {
+                "id": "lights",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -562.3026257802729,
+                  "right": -366.30262578027293,
+                  "top": 74.63031377379,
+                  "bottom": 107.29698044045666
+                }
+              },
+              {
+                "id": "baseball",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 1496.782504237097,
+                  "right": 1692.782504237097,
+                  "top": 99.35077754087018,
+                  "bottom": 132.01744420753684
+                }
+              },
+              {
+                "id": "baseball",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 1496.782504237097,
+                  "right": 1692.782504237097,
+                  "top": 99.35077754087018,
+                  "bottom": 132.01744420753684
+                }
+              },
+              {
+                "id": "mascot",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -764.2631224410477,
+                  "right": -568.2631224410477,
+                  "top": 272.9806852686898,
+                  "bottom": 305.6473519353565
+                }
+              },
+              {
+                "id": "sock",
+                "visible": false,
+                "opacity": 0.0036653826168144264,
+                "bounds": {
+                  "left": 591.3254292630952,
+                  "right": 787.3254292630952,
+                  "top": 373.25302399304854,
+                  "bottom": 405.91969065971523
+                }
+              },
+              {
+                "id": "sock",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 591.3254292630952,
+                  "right": 787.3254292630952,
+                  "top": 373.25302399304854,
+                  "bottom": 405.91969065971523
+                }
+              }
+            ]
+          },
+          "layout": {
+            "poles": [
+              [
+                [
+                  1875.058603716488,
+                  846.2554326201054
+                ],
+                [
+                  2260.391585573148,
+                  290.7036052236572
+                ]
+              ],
+              [
+                [
+                  6480.4346150408455,
+                  -2945.9068462393534
+                ],
+                [
+                  3085.59629198208,
+                  270.3784651365055
+                ]
+              ]
+            ],
+            "crowdMinimumRadius": 121.78395279385332
+          }
+        }
+      },
+      "icecream": {
+        "hit": "icecream",
+        "reacting": true,
+        "score": 4580,
+        "hits": 1,
+        "camera": [
+          -37.41231954447182,
+          18.535462116217598,
+          47.589197443902435
+        ],
+        "preview": {
+          "integrated": true,
+          "triangles": 13416,
+          "primitives": 4,
+          "bounds": {
+            "left": 716.6601446017585,
+            "top": 461.3351683086693,
+            "right": 885.1726720689478,
+            "bottom": 614.2587459782318
+          },
+          "position": [
+            -57,
+            0,
+            84
+          ],
+          "moving": [
+            -57,
+            0,
+            84
+          ],
+          "proxiesHidden": true
+        },
+        "render": {
+          "loaded": [
+            "field",
+            "stadium",
+            "batter",
+            "bat",
+            "baseball",
+            "home-plate",
+            "target-icecream",
+            "target-goal",
+            "target-ufo",
+            "target-dinosaur",
+            "target-toilet",
+            "target-scoreboard",
+            "target-lights",
+            "target-baseball",
+            "target-mascot",
+            "target-sock"
+          ],
+          "drawCalls": 688,
+          "triangles": 188755,
+          "geometries": 191,
+          "textures": 10,
+          "targetAssets": {
+            "icecream": {
+              "integrated": true,
+              "triangles": 15912,
+              "primitives": 28,
+              "bounds": {
+                "left": 654.6831291211481,
+                "top": 379.0682255486985,
+                "right": 910.7761043073713,
+                "bottom": 612.7697966554497
+              },
+              "position": [
+                -57,
+                0,
+                84
+              ],
+              "moving": [
+                -57,
+                0,
+                84
+              ],
+              "proxiesHidden": true
+            },
+            "goal": {
+              "integrated": true,
+              "triangles": 1552,
+              "primitives": 3,
+              "bounds": {
+                "left": -54.241032421883126,
+                "top": 385.64295388611504,
+                "right": 511.4326644557057,
+                "bottom": 727.1631064892852
+              },
+              "position": [
+                -29,
+                0,
+                83
+              ],
+              "moving": [
+                -29,
+                0,
+                83
+              ],
+              "proxiesHidden": true
+            },
+            "ufo": {
+              "integrated": true,
+              "triangles": 7256,
+              "primitives": 16,
+              "bounds": {
+                "left": -1796.439492286838,
+                "top": -184.0619317146682,
+                "right": -317.3049774382117,
+                "bottom": 210.87359511347157
+              },
+              "position": [
+                0.6595012841587766,
+                25.368502994474888,
+                91
+              ],
+              "moving": [
+                0,
+                0,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "dinosaur": {
+              "integrated": true,
+              "triangles": 14440,
+              "primitives": 3,
+              "bounds": {
+                "left": -46279.58753741272,
+                "top": -23321.689715643148,
+                "right": 110140.50836936457,
+                "bottom": 3251.207718860538
+              },
+              "position": [
+                34,
+                0,
+                83
+              ],
+              "moving": [
+                0,
+                16,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "toilet": {
+              "integrated": true,
+              "triangles": 5076,
+              "primitives": 4,
+              "bounds": {
+                "left": -1884.8033166982782,
+                "top": 451.2269860494428,
+                "right": -507.0319490462751,
+                "bottom": 908.2038352719175
+              },
+              "position": [
+                17,
+                0,
+                98
+              ],
+              "moving": [
+                0,
+                6.6,
+                -1
+              ],
+              "proxiesHidden": true
+            },
+            "scoreboard": {
+              "integrated": true,
+              "triangles": 6162,
+              "primitives": 4,
+              "bounds": {
+                "left": 366.1135288072483,
+                "top": 141.07887934919268,
+                "right": 680.8538160946619,
+                "bottom": 324.2766365670229
+              },
+              "position": [
+                -47,
+                0,
+                110
+              ],
+              "moving": [
+                0,
+                25,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "lights": {
+              "integrated": true,
+              "triangles": 9384,
+              "primitives": 2,
+              "bounds": {
+                "left": -23926.936600642643,
+                "top": -3008.21556605792,
+                "right": 105879.53510492237,
+                "bottom": 12787.157155414174
+              },
+              "position": [
+                46,
+                0,
+                90
+              ],
+              "moving": [
+                0,
+                27,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "baseball": {
+              "integrated": true,
+              "triangles": 6100,
+              "primitives": 3,
+              "bounds": {
+                "left": 655.9707932090605,
+                "top": -255.14341777214332,
+                "right": 1185.3354869779037,
+                "bottom": 343.3344455374147
+              },
+              "position": [
+                -52,
+                0,
+                66
+              ],
+              "moving": [
+                0,
+                24,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "mascot": {
+              "integrated": true,
+              "triangles": 7176,
+              "primitives": 3,
+              "bounds": {
+                "left": -49166.5180024423,
+                "top": -7198.858615691977,
+                "right": 63773.26207139498,
+                "bottom": 1901.5489752048934
+              },
+              "position": [
+                55,
+                0,
+                94
+              ],
+              "moving": [
+                0,
+                14,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "sock": {
+              "integrated": true,
+              "triangles": 7366,
+              "primitives": 3,
+              "bounds": {
+                "left": -1304.9924077620947,
+                "top": 214.5100094595369,
+                "right": -112.9977693620857,
+                "bottom": 713.7429483516667
+              },
+              "position": [
+                -7,
+                0,
+                82
+              ],
+              "moving": [
+                0,
+                14,
+                0
+              ],
+              "proxiesHidden": true
+            }
+          },
+          "batter": "blender-batter",
+          "hand": [
+            -1.35,
+            1.2096,
+            0.6047999853134156
+          ],
+          "handle": [
+            -1.35,
+            1.2656,
+            0.6271999853134156
+          ],
+          "dinoHead": [
+            0,
+            16,
+            0
+          ],
+          "dinoJaw": [
+            0,
+            -2.146182209765625,
+            -0.30000001192092896
+          ],
+          "ballColor": "fffdf2",
+          "composition": {
+            "mascotOpacity": 1,
+            "focused": null,
+            "obstacles": [
+              {
+                "left": 653.8774908505653,
+                "right": 913.7712592076064,
+                "top": 378.72863892908026,
+                "bottom": 612.7697966554497
+              },
+              {
+                "left": -54.241032421883126,
+                "right": 511.608460141816,
+                "top": 385.64295388611504,
+                "bottom": 729.7322792470782
+              },
+              {
+                "left": -2701.8647227797715,
+                "right": -150.76413526789943,
+                "top": -304.27817962988576,
+                "bottom": 218.8957221540816
+              },
+              {
+                "left": -1884.8033166982782,
+                "right": -507.0319490462751,
+                "top": 451.2269860494428,
+                "bottom": 908.2038352719175
+              },
+              {
+                "left": 366.1135288072483,
+                "right": 680.8538160946619,
+                "top": 141.07887934919268,
+                "bottom": 324.2766365670229
+              },
+              {
+                "left": 655.9707932090605,
+                "right": 1185.3354869779037,
+                "top": -255.14341777214332,
+                "bottom": 343.3344455374147
+              },
+              {
+                "left": -1304.9924077620947,
+                "right": -112.9977693620857,
+                "top": 214.5100094595369,
+                "bottom": 713.7429483516667
+              },
+              {
+                "left": 732.5746478417714,
+                "right": 753.587288144233,
+                "top": 463.328764537195,
+                "bottom": 491.19422898761667
+              },
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 90,
+                "top": 0,
+                "right": 1440,
+                "bottom": 90,
+                "left": 0
+              },
+              {
+                "x": 36,
+                "y": 92,
+                "width": 780,
+                "height": 72,
+                "top": 92,
+                "right": 816,
+                "bottom": 164,
+                "left": 36
+              },
+              {
+                "x": 43.203125,
+                "y": 225,
+                "width": 1353.59375,
+                "height": 69.53125,
+                "top": 225,
+                "right": 1396.796875,
+                "bottom": 294.53125,
+                "left": 43.203125
+              }
+            ],
+            "labels": [
+              {
+                "id": "icecream",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 685.8243750290858,
+                  "right": 881.8243750290858,
+                  "top": 336.0619722624136,
+                  "bottom": 368.72863892908026
+                }
+              },
+              {
+                "id": "goal",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 130.68371385996645,
+                  "right": 326.6837138599665,
+                  "top": 342.97628721944835,
+                  "bottom": 375.64295388611504
+                }
+              },
+              {
+                "id": "ufo",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -1524.3144290238354,
+                  "right": -1328.3144290238354,
+                  "top": -346.94484629655244,
+                  "bottom": -314.27817962988576
+                }
+              },
+              {
+                "id": "dinosaur",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -52974.27774762857,
+                  "right": -52778.27774762857,
+                  "top": -3241.2010950267945,
+                  "bottom": -3208.534428360128
+                }
+              },
+              {
+                "id": "toilet",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -1293.9176328722767,
+                  "right": -1097.9176328722767,
+                  "top": 408.56031938277613,
+                  "bottom": 441.2269860494428
+                }
+              },
+              {
+                "id": "scoreboard",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 425.48367245095505,
+                  "right": 621.483672450955,
+                  "top": 98.41221268252602,
+                  "bottom": 131.07887934919268
+                }
+              },
+              {
+                "id": "lights",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -40278.12601839224,
+                  "right": -40082.12601839224,
+                  "top": -9978.007312163943,
+                  "bottom": -9945.340645497277
+                }
+              },
+              {
+                "id": "baseball",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 822.6531400934821,
+                  "right": 1018.6531400934821,
+                  "top": -297.81008443881,
+                  "bottom": -265.1434177721433
+                }
+              },
+              {
+                "id": "baseball",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 822.6531400934821,
+                  "right": 1018.6531400934821,
+                  "top": -297.81008443881,
+                  "bottom": -265.1434177721433
+                }
+              },
+              {
+                "id": "mascot",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -59409.21650277328,
+                  "right": -59213.21650277328,
+                  "top": -4212.1713947679345,
+                  "bottom": -4179.504728101268
+                }
+              },
+              {
+                "id": "sock",
+                "visible": false,
+                "opacity": 1.6460687449654226e-26,
+                "bounds": {
+                  "left": -806.9950885620901,
+                  "right": -610.9950885620901,
+                  "top": 171.84334279287023,
+                  "bottom": 204.5100094595369
+                }
+              },
+              {
+                "id": "sock",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -806.9950885620901,
+                  "right": -610.9950885620901,
+                  "top": 171.84334279287023,
+                  "bottom": 204.5100094595369
+                }
+              }
+            ]
+          },
+          "layout": {
+            "poles": [
+              [
+                [
+                  1225.1384774689195,
+                  1202.7753510573416
+                ],
+                [
+                  1591.688230327136,
+                  -131.90798819668623
+                ]
+              ],
+              [
+                [
+                  2351.2363407510343,
+                  -62.027739773926996
+                ],
+                [
+                  2101.5687364135097,
+                  413.07040153455745
+                ]
+              ]
+            ],
+            "crowdMinimumRadius": 121.78395279385332
+          }
+        }
+      }
+    },
+    "errors": [],
+    "requests": [
+      {
+        "url": "http://127.0.0.1:5173/assets/models/field.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/models/stadium.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/models/batter.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/models/bat.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/models/baseball.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/models/home-plate.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/icecream.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/goal.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/ufo.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/dinosaur.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/toilet.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/scoreboard.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/lights.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/baseball.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/mascot.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/sock.glb",
+        "status": 200
+      }
+    ]
+  },
+  "mobile": {
+    "perf": {
+      "gpu": "ANGLE (AMD, AMD Radeon(TM) 880M Graphics (0x0000150E) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "frames": 180,
+      "meanMs": 19.073333333333327,
+      "p95Ms": 33.399999999999636
+    },
+    "visual": {
+      "loaded": [
+        "field",
+        "stadium",
+        "batter",
+        "bat",
+        "baseball",
+        "home-plate",
+        "target-icecream",
+        "target-goal",
+        "target-ufo",
+        "target-dinosaur",
+        "target-toilet",
+        "target-scoreboard",
+        "target-lights",
+        "target-baseball",
+        "target-mascot",
+        "target-sock"
+      ],
+      "drawCalls": 673,
+      "triangles": 238707,
+      "geometries": 173,
+      "textures": 8,
+      "targetAssets": {
+        "icecream": {
+          "integrated": true,
+          "triangles": 13416,
+          "primitives": 4,
+          "bounds": {
+            "left": 394.65035929954104,
+            "top": 354.5332517418018,
+            "right": 485.6060651114657,
+            "bottom": 415.3808171414664
+          },
+          "position": [
+            -57,
+            0,
+            84
+          ],
+          "moving": [
+            -57,
+            0,
+            84
+          ],
+          "proxiesHidden": true
+        },
+        "goal": {
+          "integrated": true,
+          "triangles": 1552,
+          "primitives": 3,
+          "bounds": {
+            "left": 262.3911275370256,
+            "top": 352.03403277797656,
+            "right": 359.0322215250464,
+            "bottom": 415.2668514987003
+          },
+          "position": [
+            -29,
+            0,
+            83
+          ],
+          "moving": [
+            -29,
+            0,
+            83
+          ],
+          "proxiesHidden": true
+        },
+        "ufo": {
+          "integrated": true,
+          "triangles": 7256,
+          "primitives": 16,
+          "bounds": {
+            "left": 101.46363278880965,
+            "top": 292.2292339725674,
+            "right": 164.97248583470576,
+            "bottom": 319.78955571115324
+          },
+          "position": [
+            12.890782158166749,
+            24.669889699102686,
+            91
+          ],
+          "moving": [
+            0,
+            0,
+            0
+          ],
+          "proxiesHidden": true
+        },
+        "dinosaur": {
+          "integrated": true,
+          "triangles": 14440,
+          "primitives": 3,
+          "bounds": {
+            "left": -17.43319839631195,
+            "top": 316.62169246588314,
+            "right": 69.46156849556569,
+            "bottom": 416.07141687489195
+          },
+          "position": [
+            34,
+            0,
+            83
+          ],
+          "moving": [
+            0,
+            16,
+            0
+          ],
+          "proxiesHidden": true
+        },
+        "toilet": {
+          "integrated": true,
+          "triangles": 5076,
+          "primitives": 4,
+          "bounds": {
+            "left": 97.04865511760528,
+            "top": 364.18350105509177,
+            "right": 140.38390655307205,
+            "bottom": 412.65477895253736
+          },
+          "position": [
+            17,
+            0,
+            98
+          ],
+          "moving": [
+            0,
+            6.6,
+            -1
+          ],
+          "proxiesHidden": true
+        },
+        "scoreboard": {
+          "integrated": true,
+          "triangles": 6162,
+          "primitives": 4,
+          "bounds": {
+            "left": 298.63555915284184,
+            "top": 291.64761767830885,
+            "right": 399.583128740887,
+            "bottom": 346.45381610416916
+          },
+          "position": [
+            -47,
+            0,
+            110
+          ],
+          "moving": [
+            0,
+            25,
+            0
+          ],
+          "proxiesHidden": true
+        },
+        "lights": {
+          "integrated": true,
+          "triangles": 9384,
+          "primitives": 2,
+          "bounds": {
+            "left": -37.93024599752912,
+            "top": 284.7566960335932,
+            "right": 22.96597200425276,
+            "bottom": 413.7219330501918
+          },
+          "position": [
+            46,
+            0,
+            90
+          ],
+          "moving": [
+            0,
+            27,
+            0
+          ],
+          "proxiesHidden": true
+        },
+        "baseball": {
+          "integrated": true,
+          "triangles": 6100,
+          "primitives": 3,
+          "bounds": {
+            "left": 410.8243536169892,
+            "top": 253.69853978223227,
+            "right": 514.3400430217855,
+            "bottom": 331.1453477428589
+          },
+          "position": [
+            -52,
+            0,
+            66
+          ],
+          "moving": [
+            0,
+            24,
+            0
+          ],
+          "proxiesHidden": true
+        },
+        "mascot": {
+          "integrated": true,
+          "triangles": 7176,
+          "primitives": 3,
+          "bounds": {
+            "left": -77.93612185168911,
+            "top": 318.03580010074825,
+            "right": -1.0560842210580712,
+            "bottom": 388.45505497118563
+          },
+          "position": [
+            55,
+            0,
+            94
+          ],
+          "moving": [
+            0,
+            14,
+            0
+          ],
+          "proxiesHidden": true
+        },
+        "sock": {
+          "integrated": true,
+          "triangles": 7366,
+          "primitives": 3,
+          "bounds": {
+            "left": 195.3936797752229,
+            "top": 320.6484805705329,
+            "right": 251.88797007567277,
+            "bottom": 379.7722139033602
+          },
+          "position": [
+            -7,
+            0,
+            82
+          ],
+          "moving": [
+            0,
+            14,
+            0
+          ],
+          "proxiesHidden": true
+        }
+      },
+      "batter": "blender-batter",
+      "hand": [
+        -1.35,
+        1.2096,
+        0.6047999853134156
+      ],
+      "handle": [
+        -1.35,
+        1.2656,
+        0.6271999853134156
+      ],
+      "dinoHead": [
+        0,
+        16,
+        0
+      ],
+      "dinoJaw": [
+        0,
+        -1.8297379096501674,
+        -0.30000001192092896
+      ],
+      "ballColor": "fffdf2",
+      "composition": {
+        "mascotOpacity": 1,
+        "focused": "sock",
+        "obstacles": [
+          {
+            "left": 394.3020253984005,
+            "right": 486.80553715862624,
+            "top": 354.5332517418018,
+            "bottom": 415.3808171414664
+          },
+          {
+            "left": 262.3836831290766,
+            "right": 359.0322215250464,
+            "top": 352.03403277797656,
+            "bottom": 415.43307109436233
+          },
+          {
+            "left": 93.82235212398415,
+            "right": 166.249052108358,
+            "top": 291.116312934243,
+            "bottom": 320.84461163756475
+          },
+          {
+            "left": -22.368679569217807,
+            "right": 69.46156849556569,
+            "top": 316.269506902296,
+            "bottom": 416.7176610886556
+          },
+          {
+            "left": 97.04865511760528,
+            "right": 140.38390655307205,
+            "top": 364.18350105509177,
+            "bottom": 412.65477895253736
+          },
+          {
+            "left": 298.63555915284184,
+            "right": 399.583128740887,
+            "top": 291.64761767830885,
+            "bottom": 346.45381610416916
+          },
+          {
+            "left": -37.93024599752912,
+            "right": 22.96597200425276,
+            "top": 284.7566960335932,
+            "bottom": 413.7219330501918
+          },
+          {
+            "left": 410.8243536169892,
+            "right": 514.3400430217855,
+            "top": 253.69853978223227,
+            "bottom": 331.1453477428589
+          },
+          {
+            "left": -77.93612185168911,
+            "right": -1.0560842210580712,
+            "top": 318.03580010074825,
+            "bottom": 388.45505497118563
+          },
+          {
+            "left": 195.3936797752229,
+            "right": 251.88797007567277,
+            "top": 320.6484805705329,
+            "bottom": 379.7722139033602
+          },
+          {
+            "left": 217.47351962826207,
+            "right": 253.14023330634072,
+            "top": 467.1285418040758,
+            "bottom": 536.6938244348174
+          },
+          {
+            "left": 188.16484402028794,
+            "right": 207.66975782283293,
+            "top": 430.7600332013999,
+            "bottom": 463.4163375491648
+          },
+          {
+            "left": 200.28539111890112,
+            "right": 216.11004615651552,
+            "top": 450.97895491410657,
+            "bottom": 478.5469779876045
+          },
+          {
+            "left": 195.59530058570718,
+            "right": 224.4802786634671,
+            "top": 479.4051554123861,
+            "bottom": 502.5135691256806
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          },
+          {
+            "x": 12,
+            "y": 77,
+            "width": 366,
+            "height": 68,
+            "top": 77,
+            "right": 378,
+            "bottom": 145,
+            "left": 12
+          }
+        ],
+        "labels": [
+          {
+            "id": "icecream",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 356.09602837340094,
+              "right": 525.0115341836258,
+              "top": 316.3806674400976,
+              "bottom": 344.5332517418018
+            }
+          },
+          {
+            "id": "goal",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 226.53151440565154,
+              "right": 394.88439024847145,
+              "top": 313.9752201375066,
+              "bottom": 342.03403277797656
+            }
+          },
+          {
+            "id": "ufo",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 47.04601865055433,
+              "right": 213.02538558178782,
+              "top": 253.4530851123708,
+              "bottom": 281.116312934243
+            }
+          },
+          {
+            "id": "dinosaur",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 57.688357544673934,
+              "right": 228.39792295217399,
+              "top": 245.81791266771262,
+              "bottom": 274.269506902296
+            }
+          },
+          {
+            "id": "toilet",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 38.42891490303053,
+              "right": 199.00364676764679,
+              "top": 327.4210457443224,
+              "bottom": 354.18350105509177
+            }
+          },
+          {
+            "id": "scoreboard",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 166.1810206106478,
+              "right": 318.621290057495,
+              "top": 256.24090610383433,
+              "bottom": 281.64761767830885
+            }
+          },
+          {
+            "id": "lights",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 26.068172409156986,
+              "right": 193.81971943813284,
+              "top": 246.7981048620972,
+              "bottom": 274.7566960335932
+            }
+          },
+          {
+            "id": "baseball",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 369.2339510436772,
+              "right": 555.9304455950975,
+              "top": 212.58245735699558,
+              "bottom": 243.69853978223227
+            }
+          },
+          {
+            "id": "baseball",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 369.2339510436772,
+              "right": 555.9304455950975,
+              "top": 212.58245735699558,
+              "bottom": 243.69853978223227
+            }
+          },
+          {
+            "id": "mascot",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": -121.88780561259222,
+              "right": 42.895599539845044,
+              "top": 280.5718992420087,
+              "bottom": 308.03580010074825
+            }
+          },
+          {
+            "id": "sock",
+            "visible": true,
+            "opacity": 0.9599999998610382,
+            "bounds": {
+              "left": 137.5996113169149,
+              "right": 309.68203853398074,
+              "top": 249.96807603435525,
+              "bottom": 278.6484805705329
+            }
+          },
+          {
+            "id": "sock",
+            "visible": false,
+            "opacity": 0,
+            "bounds": {
+              "left": 137.5996113169149,
+              "right": 309.68203853398074,
+              "top": 249.96807603435525,
+              "bottom": 278.6484805705329
+            }
+          }
+        ]
+      },
+      "layout": {
+        "poles": [
+          [
+            [
+              501.3945814692126,
+              427.32428548980323
+            ],
+            [
+              510.4572936048841,
+              276.53519757734574
+            ]
+          ],
+          [
+            [
+              -137.6575100708564,
+              429.3938122377491
+            ],
+            [
+              -147.98424213602,
+              271.20271221907365
+            ]
+          ]
+        ],
+        "crowdMinimumRadius": 121.78395279385332
+      }
+    },
+    "hits": {
+      "sock": {
+        "hit": "sock",
+        "reacting": true,
+        "score": 4815,
+        "hits": 1,
+        "camera": [
+          4.557281590091187,
+          24.157473294147923,
+          47.88105369412074
+        ],
+        "preview": {
+          "integrated": true,
+          "triangles": 7366,
+          "primitives": 3,
+          "bounds": {
+            "left": 140.8338595667127,
+            "top": 429.3061414149367,
+            "right": 227.94835543501424,
+            "bottom": 522.1308649938417
+          },
+          "position": [
+            -7,
+            0,
+            82
+          ],
+          "moving": [
+            0,
+            14,
+            0
+          ],
+          "proxiesHidden": true
+        },
+        "render": {
+          "loaded": [
+            "field",
+            "stadium",
+            "batter",
+            "bat",
+            "baseball",
+            "home-plate",
+            "target-icecream",
+            "target-goal",
+            "target-ufo",
+            "target-dinosaur",
+            "target-toilet",
+            "target-scoreboard",
+            "target-lights",
+            "target-baseball",
+            "target-mascot",
+            "target-sock"
+          ],
+          "drawCalls": 478,
+          "triangles": 192019,
+          "geometries": 179,
+          "textures": 8,
+          "targetAssets": {
+            "icecream": {
+              "integrated": true,
+              "triangles": 13416,
+              "primitives": 4,
+              "bounds": {
+                "left": 427.15366626401453,
+                "top": 390.32586373446554,
+                "right": 570.1528491999726,
+                "bottom": 494.1127980849843
+              },
+              "position": [
+                -57,
+                0,
+                84
+              ],
+              "moving": [
+                -57,
+                0,
+                84
+              ],
+              "proxiesHidden": true
+            },
+            "goal": {
+              "integrated": true,
+              "triangles": 1552,
+              "primitives": 3,
+              "bounds": {
+                "left": 258.21511032589973,
+                "top": 394.95895478135407,
+                "right": 419.10965254216774,
+                "bottom": 519.8399618416433
+              },
+              "position": [
+                -29,
+                0,
+                83
+              ],
+              "moving": [
+                -29,
+                0,
+                83
+              ],
+              "proxiesHidden": true
+            },
+            "ufo": {
+              "integrated": true,
+              "triangles": 7256,
+              "primitives": 16,
+              "bounds": {
+                "left": -99.57965375210571,
+                "top": 256.24821994280046,
+                "right": 88.35449619167093,
+                "bottom": 326.28809899851046
+              },
+              "position": [
+                11.893555800978053,
+                26.09447098701554,
+                91
+              ],
+              "moving": [
+                0,
+                0,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "dinosaur": {
+              "integrated": true,
+              "triangles": 14440,
+              "primitives": 3,
+              "bounds": {
+                "left": -649.2173445741428,
+                "top": 364.55375167503837,
+                "right": -126.61294178574154,
+                "bottom": 685.8701883706616
+              },
+              "position": [
+                34,
+                0,
+                83
+              ],
+              "moving": [
+                0,
+                16,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "toilet": {
+              "integrated": true,
+              "triangles": 5076,
+              "primitives": 4,
+              "bounds": {
+                "left": -76.69591513590585,
+                "top": 413.8998731485271,
+                "right": 39.41835144850718,
+                "bottom": 537.1118699629573
+              },
+              "position": [
+                17,
+                0,
+                98
+              ],
+              "moving": [
+                0,
+                6.6,
+                -1
+              ],
+              "proxiesHidden": true
+            },
+            "scoreboard": {
+              "integrated": true,
+              "triangles": 6162,
+              "primitives": 4,
+              "bounds": {
+                "left": 272.12198002941676,
+                "top": 278.9845199992518,
+                "right": 398.6486748431275,
+                "bottom": 360.25056577880764
+              },
+              "position": [
+                -47,
+                0,
+                110
+              ],
+              "moving": [
+                0,
+                25,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "lights": {
+              "integrated": true,
+              "triangles": 9384,
+              "primitives": 2,
+              "bounds": {
+                "left": -740.450345628123,
+                "top": 229.26758263522268,
+                "right": -263.4940782328352,
+                "bottom": 621.881524552543
+              },
+              "position": [
+                46,
+                0,
+                90
+              ],
+              "moving": [
+                0,
+                27,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "baseball": {
+              "integrated": true,
+              "triangles": 6100,
+              "primitives": 3,
+              "bounds": {
+                "left": 551.7373478029929,
+                "top": 243.86388844700215,
+                "right": 868.354091085206,
+                "bottom": 407.6450471224741
+              },
+              "position": [
+                -52,
+                0,
+                66
+              ],
+              "moving": [
+                0,
+                24,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "mascot": {
+              "integrated": true,
+              "triangles": 7176,
+              "primitives": 3,
+              "bounds": {
+                "left": -911.0992575401606,
+                "top": 346.2256095708487,
+                "right": -331.56378371845676,
+                "bottom": 582.8777461626364
+              },
+              "position": [
+                55,
+                0,
+                94
+              ],
+              "moving": [
+                0,
+                14,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "sock": {
+              "integrated": true,
+              "triangles": 7338,
+              "primitives": 2,
+              "bounds": {
+                "left": 145.71303572200966,
+                "top": 403.8265200439754,
+                "right": 272.9679350464766,
+                "bottom": 512.0222916128206
+              },
+              "position": [
+                -7,
+                0,
+                82
+              ],
+              "moving": [
+                0,
+                10.275999999999996,
+                0
+              ],
+              "proxiesHidden": true
+            }
+          },
+          "batter": "blender-batter",
+          "hand": [
+            -1.35,
+            1.2096,
+            0.6047999853134156
+          ],
+          "handle": [
+            -1.35,
+            1.2656,
+            0.6271999853134156
+          ],
+          "dinoHead": [
+            0,
+            16,
+            0
+          ],
+          "dinoJaw": [
+            0,
+            -2.166018173073412,
+            -0.30000001192092896
+          ],
+          "ballColor": "fffdf2",
+          "composition": {
+            "mascotOpacity": 1,
+            "focused": null,
+            "obstacles": [
+              {
+                "left": 426.18596354297756,
+                "right": 571.2521678179088,
+                "top": 390.0730579291705,
+                "bottom": 494.1127980849843
+              },
+              {
+                "left": 258.16868432871456,
+                "right": 419.10965254216774,
+                "top": 394.95895478135407,
+                "bottom": 520.7705563200408
+              },
+              {
+                "left": -158.06631068431255,
+                "right": 93.18354616913187,
+                "top": 251.05400827310973,
+                "bottom": 326.35998558429156
+              },
+              {
+                "left": -788.0408479969452,
+                "right": -126.61294178574154,
+                "top": 358.46094164833335,
+                "bottom": 715.1674816359746
+              },
+              {
+                "left": -76.69591513590585,
+                "right": 39.41835144850718,
+                "top": 413.8998731485271,
+                "bottom": 537.1118699629573
+              },
+              {
+                "left": 272.12198002941676,
+                "right": 398.6486748431275,
+                "top": 278.9845199992518,
+                "bottom": 360.25056577880764
+              },
+              {
+                "left": -740.450345628123,
+                "right": -263.4940782328352,
+                "top": 229.26758263522268,
+                "bottom": 621.881524552543
+              },
+              {
+                "left": 551.7373478029929,
+                "right": 868.354091085206,
+                "top": 243.86388844700215,
+                "bottom": 407.6450471224741
+              },
+              {
+                "left": -911.0992575401606,
+                "right": -331.56378371845676,
+                "top": 346.2256095708487,
+                "bottom": 582.8777461626364
+              },
+              {
+                "left": 145.71303572200966,
+                "right": 272.9679350464766,
+                "top": 403.8265200439754,
+                "bottom": 512.0222916128206
+              },
+              {
+                "left": 194.82529270078382,
+                "right": 205.2068099337801,
+                "top": 411.51515739360923,
+                "bottom": 426.7559195365392
+              },
+              {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 76,
+                "top": 0,
+                "right": 390,
+                "bottom": 76,
+                "left": 0
+              },
+              {
+                "x": 12,
+                "y": 77,
+                "width": 366,
+                "height": 68,
+                "top": 77,
+                "right": 378,
+                "bottom": 145,
+                "left": 12
+              },
+              {
+                "x": 11.703125,
+                "y": 211,
+                "width": 366.59375,
+                "height": 35,
+                "top": 211,
+                "right": 378.296875,
+                "bottom": 246,
+                "left": 11.703125
+              }
+            ],
+            "labels": [
+              {
+                "id": "icecream",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 400.7190656804432,
+                  "right": 596.7190656804432,
+                  "top": 347.4063912625038,
+                  "bottom": 380.0730579291705
+                }
+              },
+              {
+                "id": "goal",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 240.63916843544115,
+                  "right": 436.63916843544115,
+                  "top": 352.2922881146874,
+                  "bottom": 384.95895478135407
+                }
+              },
+              {
+                "id": "ufo",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -130.44138225759033,
+                  "right": 65.55861774240967,
+                  "top": 208.38734160644307,
+                  "bottom": 241.05400827310973
+                }
+              },
+              {
+                "id": "dinosaur",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -555.3268948913434,
+                  "right": -359.3268948913434,
+                  "top": 315.79427498166666,
+                  "bottom": 348.46094164833335
+                }
+              },
+              {
+                "id": "toilet",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 20.561218156300654,
+                  "right": 216.56121815630064,
+                  "top": 355.2332064818604,
+                  "bottom": 387.8998731485271
+                }
+              },
+              {
+                "id": "scoreboard",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 237.38532743627212,
+                  "right": 433.3853274362721,
+                  "top": 236.31785333258514,
+                  "bottom": 268.9845199992518
+                }
+              },
+              {
+                "id": "lights",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -599.9722119304791,
+                  "right": -403.97221193047915,
+                  "top": 186.60091596855602,
+                  "bottom": 219.26758263522268
+                }
+              },
+              {
+                "id": "baseball",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 612.0457194440994,
+                  "right": 808.0457194440994,
+                  "top": 201.1972217803355,
+                  "bottom": 233.86388844700215
+                }
+              },
+              {
+                "id": "baseball",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 612.0457194440994,
+                  "right": 808.0457194440994,
+                  "top": 201.1972217803355,
+                  "bottom": 233.86388844700215
+                }
+              },
+              {
+                "id": "mascot",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -719.3315206293087,
+                  "right": -523.3315206293087,
+                  "top": 303.558942904182,
+                  "bottom": 336.2256095708487
+                }
+              },
+              {
+                "id": "sock",
+                "visible": false,
+                "opacity": 6.473169110448501e-8,
+                "bounds": {
+                  "left": 56.46048538424316,
+                  "right": 252.46048538424316,
+                  "top": 361.1598533773087,
+                  "bottom": 393.8265200439754
+                }
+              },
+              {
+                "id": "sock",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 56.46048538424316,
+                  "right": 252.46048538424316,
+                  "top": 361.1598533773087,
+                  "bottom": 393.8265200439754
+                }
+              }
+            ]
+          },
+          "layout": {
+            "poles": [
+              [
+                [
+                  878.3735491335638,
+                  659.6595132857785
+                ],
+                [
+                  1103.888282478144,
+                  330.9989847024664
+                ]
+              ],
+              [
+                [
+                  3458.1282975877402,
+                  -1492.585554981805
+                ],
+                [
+                  1576.1458201005964,
+                  323.10120802275685
+                ]
+              ]
+            ],
+            "crowdMinimumRadius": 121.78395279385332
+          }
+        }
+      },
+      "icecream": {
+        "hit": "icecream",
+        "reacting": true,
+        "score": 4580,
+        "hits": 1,
+        "camera": [
+          -37.41323519624123,
+          18.53546191953681,
+          47.5891984394895
+        ],
+        "preview": {
+          "integrated": true,
+          "triangles": 13416,
+          "primitives": 4,
+          "bounds": {
+            "left": 193.59735132601458,
+            "top": 431.30542410700923,
+            "right": 291.710848282956,
+            "bottom": 520.1992629973965
+          },
+          "position": [
+            -57,
+            0,
+            84
+          ],
+          "moving": [
+            -57,
+            0,
+            84
+          ],
+          "proxiesHidden": true
+        },
+        "render": {
+          "loaded": [
+            "field",
+            "stadium",
+            "batter",
+            "bat",
+            "baseball",
+            "home-plate",
+            "target-icecream",
+            "target-goal",
+            "target-ufo",
+            "target-dinosaur",
+            "target-toilet",
+            "target-scoreboard",
+            "target-lights",
+            "target-baseball",
+            "target-mascot",
+            "target-sock"
+          ],
+          "drawCalls": 417,
+          "triangles": 177109,
+          "geometries": 191,
+          "textures": 10,
+          "targetAssets": {
+            "icecream": {
+              "integrated": true,
+              "triangles": 15912,
+              "primitives": 28,
+              "bounds": {
+                "left": 156.6503880711863,
+                "top": 382.8725120592532,
+                "right": 307.0157796537469,
+                "bottom": 520.0899972637051
+              },
+              "position": [
+                -57,
+                0,
+                84
+              ],
+              "moving": [
+                -57,
+                0,
+                84
+              ],
+              "proxiesHidden": true
+            },
+            "goal": {
+              "integrated": true,
+              "triangles": 1552,
+              "primitives": 3,
+              "bounds": {
+                "left": -259.5885359702829,
+                "top": 386.73241985918946,
+                "right": 72.53996064655465,
+                "bottom": 587.2506393245294
+              },
+              "position": [
+                -29,
+                0,
+                83
+              ],
+              "moving": [
+                -29,
+                0,
+                83
+              ],
+              "proxiesHidden": true
+            },
+            "ufo": {
+              "integrated": true,
+              "triangles": 7256,
+              "primitives": 16,
+              "bounds": {
+                "left": -1305.5206723768954,
+                "top": 54.27229411626953,
+                "right": -419.6569586170285,
+                "bottom": 284.8226487362954
+              },
+              "position": [
+                0.9895464088064037,
+                25.245607320713166,
+                91
+              ],
+              "moving": [
+                0,
+                0,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "dinosaur": {
+              "integrated": true,
+              "triangles": 14440,
+              "primitives": 3,
+              "bounds": {
+                "left": -27351.265380532062,
+                "top": -13581.15980425288,
+                "right": 64664.69298356218,
+                "bottom": 2068.7564623105395
+              },
+              "position": [
+                34,
+                0,
+                83
+              ],
+              "moving": [
+                0,
+                16,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "toilet": {
+              "integrated": true,
+              "triangles": 5076,
+              "primitives": 4,
+              "bounds": {
+                "left": -1334.2867180160267,
+                "top": 425.2366390430553,
+                "right": -525.4197061570593,
+                "bottom": 693.5274695718168
+              },
+              "position": [
+                17,
+                0,
+                98
+              ],
+              "moving": [
+                0,
+                6.6,
+                -1
+              ],
+              "proxiesHidden": true
+            },
+            "scoreboard": {
+              "integrated": true,
+              "triangles": 6162,
+              "primitives": 4,
+              "bounds": {
+                "left": -12.778460769041983,
+                "top": 243.13854584430638,
+                "right": 172.0190214544166,
+                "bottom": 350.7014935376627
+              },
+              "position": [
+                -47,
+                0,
+                110
+              ],
+              "moving": [
+                0,
+                25,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "lights": {
+              "integrated": true,
+              "triangles": 9384,
+              "primitives": 2,
+              "bounds": {
+                "left": -14265.631434073292,
+                "top": -1604.4962459370618,
+                "right": 62142.66146431395,
+                "bottom": 7692.326599549646
+              },
+              "position": [
+                46,
+                0,
+                90
+              ],
+              "moving": [
+                0,
+                27,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "baseball": {
+              "integrated": true,
+              "triangles": 6100,
+              "primitives": 3,
+              "bounds": {
+                "left": 157.40139859688395,
+                "top": 10.485444453428615,
+                "right": 468.22265126444444,
+                "bottom": 361.89162875686947
+              },
+              "position": [
+                -52,
+                0,
+                66
+              ],
+              "moving": [
+                0,
+                24,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "mascot": {
+              "integrated": true,
+              "triangles": 7176,
+              "primitives": 3,
+              "bounds": {
+                "left": -29050.266253132835,
+                "top": -4075.5666458716255,
+                "right": 37293.01088695994,
+                "bottom": 1276.4403803945372
+              },
+              "position": [
+                55,
+                0,
+                94
+              ],
+              "moving": [
+                0,
+                14,
+                0
+              ],
+              "proxiesHidden": true
+            },
+            "sock": {
+              "integrated": true,
+              "triangles": 7366,
+              "primitives": 3,
+              "bounds": {
+                "left": -993.9181595074626,
+                "top": 286.2555975731175,
+                "right": -294.08450230469236,
+                "bottom": 579.3647617403367
+              },
+              "position": [
+                -7,
+                0,
+                82
+              ],
+              "moving": [
+                0,
+                14,
+                0
+              ],
+              "proxiesHidden": true
+            }
+          },
+          "batter": "blender-batter",
+          "hand": [
+            -1.35,
+            1.2096,
+            0.6047999853134156
+          ],
+          "handle": [
+            -1.35,
+            1.2656,
+            0.6271999853134156
+          ],
+          "dinoHead": [
+            0,
+            16,
+            0
+          ],
+          "dinoJaw": [
+            0,
+            -2.1647570337170103,
+            -0.30000001192092896
+          ],
+          "ballColor": "fffdf2",
+          "composition": {
+            "mascotOpacity": 1,
+            "focused": null,
+            "obstacles": [
+              {
+                "left": 156.1773886075709,
+                "right": 308.77442445188177,
+                "top": 382.6731237395912,
+                "bottom": 520.0899972637051
+              },
+              {
+                "left": -259.5885359702829,
+                "right": 72.64318008828751,
+                "top": 386.73241985918946,
+                "bottom": 588.7590941855152
+              },
+              {
+                "left": -1843.6481086733,
+                "right": -321.54669203373294,
+                "top": -15.793293212343434,
+                "bottom": 289.81732170856105
+              },
+              {
+                "left": -1334.2867180160267,
+                "right": -525.4197061570593,
+                "top": 425.2366390430553,
+                "bottom": 693.5274695718168
+              },
+              {
+                "left": -12.778460769041983,
+                "right": 172.0190214544166,
+                "top": 243.13854584430638,
+                "bottom": 350.7014935376627
+              },
+              {
+                "left": 157.40139859688395,
+                "right": 468.22265126444444,
+                "top": 10.485444453428615,
+                "bottom": 361.89162875686947
+              },
+              {
+                "left": -993.9181595074626,
+                "right": -294.08450230469236,
+                "top": 286.2555975731175,
+                "bottom": 579.3647617403367
+              },
+              {
+                "left": 202.6467860464724,
+                "right": 214.38049217672332,
+                "top": 434.76792588616723,
+                "bottom": 446.1828242982165
+              },
+              {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 76,
+                "top": 0,
+                "right": 390,
+                "bottom": 76,
+                "left": 0
+              },
+              {
+                "x": 12,
+                "y": 77,
+                "width": 366,
+                "height": 68,
+                "top": 77,
+                "right": 378,
+                "bottom": 145,
+                "left": 12
+              },
+              {
+                "x": 11.703125,
+                "y": 211,
+                "width": 366.59375,
+                "height": 70,
+                "top": 211,
+                "right": 378.296875,
+                "bottom": 281,
+                "left": 11.703125
+              }
+            ],
+            "labels": [
+              {
+                "id": "icecream",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 134.47590652972633,
+                  "right": 330.47590652972633,
+                  "top": 340.0064570729245,
+                  "bottom": 372.6731237395912
+                }
+              },
+              {
+                "id": "goal",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -191.4726779409977,
+                  "right": 4.527322059002302,
+                  "top": 344.0657531925228,
+                  "bottom": 376.73241985918946
+                }
+              },
+              {
+                "id": "ufo",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -1180.5974003535164,
+                  "right": -984.5974003535164,
+                  "top": -58.4599598790101,
+                  "bottom": -25.793293212343436
+                }
+              },
+              {
+                "id": "dinosaur",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -31041.95083439575,
+                  "right": -30845.95083439575,
+                  "top": -1730.1784543635981,
+                  "bottom": -1697.5117876969314
+                }
+              },
+              {
+                "id": "toilet",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -1027.853212086543,
+                  "right": -831.853212086543,
+                  "top": 382.5699723763886,
+                  "bottom": 415.2366390430553
+                }
+              },
+              {
+                "id": "scoreboard",
+                "visible": false,
+                "opacity": 0.0000044170908328394455,
+                "bounds": {
+                  "left": -18.37971965731269,
+                  "right": 177.6202803426873,
+                  "top": 200.47187917763972,
+                  "bottom": 233.13854584430638
+                }
+              },
+              {
+                "id": "lights",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -23782.427308858423,
+                  "right": -23586.427308858423,
+                  "top": -5679.787616609043,
+                  "bottom": -5647.120949942376
+                }
+              },
+              {
+                "id": "baseball",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 214.81202493066417,
+                  "right": 410.81202493066417,
+                  "top": -32.18122221323805,
+                  "bottom": 0.48544445342861486
+                }
+              },
+              {
+                "id": "baseball",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": 214.81202493066417,
+                  "right": 410.81202493066417,
+                  "top": -32.18122221323805,
+                  "bottom": 0.48544445342861486
+                }
+              },
+              {
+                "id": "mascot",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -34769.15029543027,
+                  "right": -34573.15029543027,
+                  "top": -2300.516186978499,
+                  "bottom": -2267.8495203118323
+                }
+              },
+              {
+                "id": "sock",
+                "visible": false,
+                "opacity": 2.3991702384586766e-31,
+                "bounds": {
+                  "left": -742.0013309060776,
+                  "right": -546.0013309060776,
+                  "top": 243.58893090645083,
+                  "bottom": 276.2555975731175
+                }
+              },
+              {
+                "id": "sock",
+                "visible": false,
+                "opacity": 0,
+                "bounds": {
+                  "left": -742.0013309060776,
+                  "right": -546.0013309060776,
+                  "top": 243.58893090645083,
+                  "bottom": 276.2555975731175
+                }
+              }
+            ]
+          },
+          "layout": {
+            "poles": [
+              [
+                [
+                  491.58530050080606,
+                  866.5307345227743
+                ],
+                [
+                  706.8210423269177,
+                  82.83241921707247
+                ]
+              ],
+              [
+                [
+                  1152.8380784059113,
+                  123.87379541841372
+                ],
+                [
+                  1006.2292905142522,
+                  402.8385699157618
+                ]
+              ]
+            ],
+            "crowdMinimumRadius": 121.78395279385332
+          }
+        }
+      }
+    },
+    "errors": [],
+    "requests": [
+      {
+        "url": "http://127.0.0.1:5173/assets/models/field.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/models/stadium.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/models/batter.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/models/bat.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/models/home-plate.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/models/baseball.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/icecream.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/goal.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/ufo.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/dinosaur.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/toilet.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/scoreboard.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/lights.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/baseball.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/mascot.glb",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5173/assets/targets/sock.glb",
+        "status": 200
+      }
+    ]
+  }
+}
