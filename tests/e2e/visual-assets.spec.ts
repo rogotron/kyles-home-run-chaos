@@ -133,7 +133,9 @@ test("all environment and target models load before startup and preserve contact
   await page.clock.install();
   await page.goto("/");
   await page.waitForFunction(() => !!window.__HOME_RUN_CHAOS__);
-  await page.clock.pauseAt(new Date(Date.now() + 100));
+  await page.clock.pauseAt(
+    new Date((await page.evaluate(() => Date.now())) + 100),
+  );
   const visual = await page.evaluate(() =>
     window.__HOME_RUN_CHAOS__.getVisualState(),
   );
